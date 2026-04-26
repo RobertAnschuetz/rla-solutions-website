@@ -110,7 +110,7 @@ git push main →─┤
 - All-Inkl-specific PHP includes (the site is static anyway)
 
 ## Notes & open items
-- Contact form only simulates submission — messages are not sent anywhere yet. Wire to FormSubmit at `robert.anschuetz@gmx.de` when ready (host-portable, see memory).
+- Contact form only simulates submission — messages are not sent anywhere yet. Wire to FormSubmit at `robert.anschuetz@rla-solutions.com` when ready (host-portable, see memory).
 - Success button still reads "Gesendet! Wir melden uns." — needs updating to "Ich melde mich." when touching the form handler (`js/main.js` around line 285).
 - Portfolio uses real customer screenshots in `assets/portfolio-*.png`.
 - Hero stats: `30+ Projekte`, `24h Antwortzeit`, `95+ PageSpeed` — defensible claims, do not inflate.
