@@ -1,11 +1,11 @@
 # RLA Solutions Webdesign
 
 ## Project Overview
-Marketing site for a solo web-design practice (Robert Anschütz, München). Editorial aesthetic — warm cream base with red accents. Bilingual (DE primary, EN mirror). Currently deployed on Netlify; may move to IONOS later, so all dynamic pieces must stay host-portable.
+Marketing site for a solo web-design practice (Robert Anschütz, München). Editorial aesthetic — warm cream base with red accents. Bilingual (DE primary, EN mirror). Live at **rla-solutions.com** (All-Inkl shared hosting) and mirrored at **rlasolutions.netlify.app** (Netlify staging). All dynamic pieces stay host-portable so the site doesn't depend on Netlify-only or All-Inkl-only features.
 
 ## Tech Stack
 - Vanilla HTML/CSS/JS (no framework, no build step)
-- Google Fonts: Bricolage Grotesque (display) + Plus Jakarta Sans (body)
+- **Self-hosted fonts** in `assets/fonts/` — Bricolage Grotesque (display) + Plus Jakarta Sans (body) regular + italic. Variable woff2 files, latin subset only. No third-party font CDN — required for DSGVO compliance (LG München 3 O 17493/20).
 - Local dev: `npx serve` or the Claude Preview server at :3000
 
 ## Structure
@@ -63,7 +63,7 @@ Main pages use the **personal "Ich"-voice** throughout (Ich baue, Ich gestalte, 
 
 ### Back-to-top button (`.back-to-top`, id `backToTop`)
 - Fixed bottom-left (opposite the WhatsApp fab bottom-right), revealed once scrollY passes half the viewport
-- Charcoal bg / white arrow by default, turns primary orange on hover
+- Charcoal bg / white arrow by default, turns primary red on hover
 - Present on all 8 pages; JS in main.js toggles `.visible` class + smooth-scroll on click
 
 ### Mobile menu (`.nav__mobile`) — architectural gotcha
@@ -83,14 +83,39 @@ Main pages use the **personal "Ich"-voice** throughout (Ich baue, Ich gestalte, 
 - Back-to-top scroll watcher
 
 ## Deployment
-- Netlify live at rlasolutions.netlify.app (or similar)
-- Planned: IONOS or similar. Avoid host-specific features. Use `FormSubmit` (not Netlify Forms) when wiring the contact form for real.
+
+GitHub is the source of truth. Every push to `main` auto-deploys to **both** Netlify and All-Inkl in parallel.
+
+```
+                ┌─→ Netlify (rlasolutions.netlify.app) — staging mirror, ~30s
+git push main →─┤
+                └─→ All-Inkl (rla-solutions.com) — production, ~60s via GitHub Action FTPS
+```
+
+**Repo:** [`RobertAnschuetz/rla-solutions-website`](https://github.com/RobertAnschuetz/rla-solutions-website) (private)
+
+**Netlify:** linked to the GitHub repo (Site configuration → Continuous deployment). Branch `main`, no build command, publish dir = root. Auto-rebuild on every push.
+
+**All-Inkl:** GitHub Action `.github/workflows/deploy-allinkl.yml` syncs files via FTPS (port 21, TLS) using `SamKirkland/FTP-Deploy-Action@v4`. Credentials live in GitHub repo Secrets:
+- `ALLINKL_HOST` = `w0216ad1.kasserver.com`
+- `ALLINKL_USER` = `f01842cd` (the `rla-deploy` FTP user; full RWLV at `/`)
+- `ALLINKL_PASSWORD` = (secret)
+- `ALLINKL_PATH` = `/rla-solutions.com/` (per-domain subdirectory; All-Inkl's convention)
+
+**Why both?** Netlify is fast, free, and easy to roll back via its UI; All-Inkl is the actual production host carrying the public domain. If ever migrating production again (IONOS, Hetzner, etc.), only the GitHub Action's FTP secret values change — the workflow stays portable.
+
+**Things to keep host-portable** (avoid):
+- Netlify Forms (use FormSubmit instead)
+- Netlify redirects/edge functions/headers
+- All-Inkl-specific PHP includes (the site is static anyway)
 
 ## Notes & open items
-- Contact form only simulates submission — messages are not sent anywhere yet. Wire to FormSubmit at `robert.anschuetz@gmx.de` when ready.
+- Contact form only simulates submission — messages are not sent anywhere yet. Wire to FormSubmit at `robert.anschuetz@gmx.de` when ready (host-portable, see memory).
 - Success button still reads "Gesendet! Wir melden uns." — needs updating to "Ich melde mich." when touching the form handler (`js/main.js` around line 285).
 - Portfolio uses real customer screenshots in `assets/portfolio-*.png`.
 - Hero stats: `30+ Projekte`, `24h Antwortzeit`, `95+ PageSpeed` — defensible claims, do not inflate.
+- Old `rla-solutions.de` domain mapping in KAS and the `/rla-solutions.de/` directory in webspace are orphaned (the .de domain is owned by someone else). Safe to delete via KAS → Domain and via WebFTP — pure cleanup, no functional impact.
+- Honeypot spam protection is in place: hidden `name="_honey"` field + 3-second time-check in JS. The field name is intentional — when FormSubmit is wired, it auto-uses `_honey` as a server-side check too.
 
 ## Reference Sites
 Original design inspiration: wibify.agency (pricing/social proof), vpv.co (editorial aesthetic), jasminegunarto.com (typography)
