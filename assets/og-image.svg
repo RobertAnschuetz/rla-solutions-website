@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Background cream -->
+  <rect width="1200" height="630" fill="#FEFDFB"/>
+
+  <!-- Decorative soft blob (warm accent) -->
+  <circle cx="1050" cy="120" r="300" fill="#E8450E" opacity="0.06"/>
+  <circle cx="120" cy="540" r="240" fill="#E8450E" opacity="0.05"/>
+
+  <!-- Top-left brand wordmark -->
+  <g transform="translate(72, 72)">
+    <text x="0" y="46" font-family="'Bricolage Grotesque', serif" font-weight="800" font-size="52" fill="#E8450E" letter-spacing="-1.5">RLA</text>
+    <text x="120" y="46" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="30" fill="#1B1B1E">Solutions</text>
+  </g>
+
+  <!-- Main headline: big charcoal + italic vermillion -->
+  <g transform="translate(72, 280)">
+    <text x="0" y="0" font-family="'Bricolage Grotesque', serif" font-weight="800" font-size="104" fill="#1B1B1E" letter-spacing="-3">Websites, die</text>
+    <text x="0" y="120" font-family="'Bricolage Grotesque', serif" font-weight="800" font-style="italic" font-size="104" fill="#E8450E" letter-spacing="-3">begeistern.</text>
+    <!-- Highlight bar behind italic word -->
+    <rect x="-4" y="96" width="470" height="14" rx="4" fill="#E8450E" opacity="0.12"/>
+  </g>
+
+  <!-- Bottom strip: subtitle + URL -->
+  <g transform="translate(72, 560)">
+    <text x="0" y="0" font-family="'Plus Jakarta Sans', sans-serif" font-weight="500" font-size="22" fill="#6B6B76">Webdesign aus M&#252;nchen &#183; Von der Idee zum Launch</text>
+  </g>
+</svg>

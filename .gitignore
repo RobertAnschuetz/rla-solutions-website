@@ -1,0 +1,29 @@
+# Tooling / scratch — never goes to git
+.firecrawl/
+.playwright-mcp/
+.claude/
+
+# Local Claude Preview / launch config (per-machine; safe to share but not required)
+# Uncomment the next line if you'd rather keep it private:
+# .claude/
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor metadata
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Env / secrets — if any are added later
+.env
+.env.local
+.env.*.local
+
+# Build artifacts (none today, but defensive)
+dist/
+build/
+node_modules/

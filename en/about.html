@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — RLA Solutions</title>
+  <meta name="description" content="Meet Robert Ansch&uuml;tz, the designer behind RLA Solutions. 12+ years of experience in the pharmaceutical industry, now crafting high-performance websites.">
+
+  <!-- Open Graph / Social sharing -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="RLA Solutions">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:url" content="https://rla-solutions.de/en/about.html">
+  <meta property="og:title" content="About — Robert Anschütz · RLA Solutions">
+  <meta property="og:description" content="Designer, strategist, and founder of RLA Solutions. 12+ years in the pharmaceutical industry — now bringing strategy, precision, and craftsmanship to every website.">
+  <meta property="og:image" content="https://rla-solutions.de/assets/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Robert Anschütz, founder of RLA Solutions">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About — Robert Anschütz · RLA Solutions">
+  <meta name="twitter:description" content="Designer, strategist, and founder of RLA Solutions. 12+ years of pharmaceutical industry experience. Web design from Munich.">
+  <meta name="twitter:image" content="https://rla-solutions.de/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="de" href="https://rla-solutions.de/about.html">
+  <link rel="alternate" hreflang="en" href="https://rla-solutions.de/en/about.html">
+  <link rel="alternate" hreflang="x-default" href="https://rla-solutions.de/about.html">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Cursor follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-mark">RLA</span>
+        <span class="nav__logo-text">Solutions</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html#services" class="nav__link">Services</a>
+        <a href="index.html#work" class="nav__link">Work</a>
+        <a href="index.html#process" class="nav__link">Process</a>
+        <a href="index.html#testimonials" class="nav__link">Testimonials</a>
+        <a href="index.html#pricing" class="nav__link">Pricing</a>
+        <a href="index.html#contact" class="nav__link">Contact</a>
+        <a href="about.html" class="nav__link active">About me</a>
+      </div>
+      <div class="nav__actions">
+        <div class="nav__lang">
+          <a href="../about.html">DE</a>
+          <span class="nav__lang-sep">|</span>
+          <a href="about.html" class="active">EN</a>
+        </div>
+        <a href="index.html#contact" class="nav__cta">Start a Project</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu — outside .nav so .nav.scrolled's backdrop-filter doesn't
+       hijack the containing block for its position: fixed. -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="index.html#services" class="nav__mobile-link">Services</a>
+    <a href="index.html#work" class="nav__mobile-link">Work</a>
+    <a href="index.html#process" class="nav__mobile-link">Process</a>
+    <a href="index.html#testimonials" class="nav__mobile-link">Testimonials</a>
+    <a href="index.html#pricing" class="nav__mobile-link">Pricing</a>
+    <a href="index.html#contact" class="nav__mobile-link">Contact</a>
+    <a href="about.html" class="nav__mobile-link">About me</a>
+    <a href="index.html#contact" class="nav__mobile-link nav__mobile-cta">Start a Project</a>
+    <div class="nav__mobile-lang">
+      <a href="../about.html">DE</a>
+      <span class="nav__mobile-lang-sep">|</span>
+      <a href="about.html" class="active">EN</a>
+    </div>
+  </div>
+
+  <!-- About Hero (Editorial) -->
+  <section class="about-hero">
+    <span class="about-hero__side-label">RLA &middot; Munich</span>
+    <div class="container">
+      <div class="about-hero__content">
+        <div class="about-hero__label reveal">Founder</div>
+        <h1 class="about-hero__title reveal" data-delay="1">Robert<br>Ansch&uuml;tz</h1>
+        <div class="about-hero__subtitle reveal" data-delay="2">Founder &middot; RLA Solutions</div>
+        <p class="about-hero__intro reveal" data-delay="3">Designer, strategist, and the mind behind RLA Solutions. With over 12 years of experience, I bring strategy, precision, and true craftsmanship to every website.</p>
+      </div>
+      <div class="about-hero__image reveal">
+        <img src="../assets/robert-portrait.png" alt="Robert Anschütz — Founder of RLA Solutions">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="about-stats-strip">
+    <div class="container">
+      <div class="about-stats reveal">
+        <div class="about-stat">
+          <div class="about-stat__number"><span data-count="12">0</span><span class="about-stat__suffix">+</span></div>
+          <div class="about-stat__label">Years of Experience</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__number"><span data-count="30">0</span><span class="about-stat__suffix">+</span></div>
+          <div class="about-stat__label">Projects Delivered</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__number"><span data-count="100">0</span><span class="about-stat__suffix">%</span></div>
+          <div class="about-stat__label">Hands-On Approach</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat__number"><span data-count="1">0</span></div>
+          <div class="about-stat__label">Point of Contact</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="about-skills">
+    <div class="container">
+      <h2 class="about-skills__title reveal">What I Bring to the Table</h2>
+      <div class="about-skills__grid">
+        <div class="about-skill reveal">
+          <div class="about-skill__name">Design with a plan</div>
+          <div class="about-skill__desc">First I think about what your website should achieve — then I design. So you don't just get a pretty website, but one that wins customers.</div>
+        </div>
+        <div class="about-skill reveal" data-delay="100">
+          <div class="about-skill__name">Everything from one source</div>
+          <div class="about-skill__desc">Design, tech, Google visibility, and speed — I take care of everything personally. You only need one point of contact.</div>
+        </div>
+        <div class="about-skill reveal" data-delay="200">
+          <div class="about-skill__name">12 years of experience</div>
+          <div class="about-skill__desc">Over a decade in the pharmaceutical industry taught me to work carefully, follow the rules, and explain complicated things in a simple way.</div>
+        </div>
+        <div class="about-skill reveal" data-delay="300">
+          <div class="about-skill__name">Online in just a few weeks</div>
+          <div class="about-skill__desc">No months-long agency processes. From idea to launch usually takes 4–8 weeks — not 4–8 months.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="about-cta">
+    <div class="container">
+      <h2 class="about-cta__title reveal">Let's build something great.</h2>
+      <p class="about-cta__text reveal" data-delay="1">Ready to work with someone who understands both business and design? Let's talk.</p>
+      <a href="index.html#contact" class="btn btn--primary reveal" data-delay="2">
+        <span>Get in Touch</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <span class="footer__logo-mark">RLA</span>
+            <span class="footer__logo-text">Solutions</span>
+          </a>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Navigate</h4>
+            <a href="index.html#services">Services</a>
+            <a href="index.html#work">Work</a>
+            <a href="index.html#process">Process</a>
+            <a href="index.html#pricing">Pricing</a>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="index.html#contact">Contact</a>
+          </div>
+          <div class="footer__col">
+            <h4>Connect</h4>
+            <a href="https://www.linkedin.com/in/robert-ansch%C3%BCtz-2444a4111/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span class="js-year">2026</span> RLA Solutions. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="datenschutz.html">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="impressum.html">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button — shows once the user scrolls past the hero -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Scroll back to top"
+    title="Back to top"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- Floating WhatsApp button -->
+  <a
+    class="wa-fab"
+    href="https://wa.me/4917662525801?text=Hello%20Robert%20Ansch%C3%BCtz%2C%20I%27m%20interested%20in%20a%20website%21"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp: Send Robert Anschütz a message"
+    title="Message me on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.03 3C9.39 3 4 8.4 4 15.04c0 2.3.66 4.54 1.9 6.5L4 29l7.66-1.88a12 12 0 0 0 4.37.82h.01c6.63 0 12.03-5.4 12.03-12.04A12 12 0 0 0 16.03 3Zm0 21.9h-.01a10 10 0 0 1-5.08-1.39l-.36-.22-4.55 1.12 1.14-4.43-.24-.38a9.9 9.9 0 0 1-1.52-5.31A9.97 9.97 0 0 1 16.03 4.97a9.97 9.97 0 0 1 9.97 9.97 9.97 9.97 0 0 1-9.97 9.96Zm5.47-7.46c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.47.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.24-.25-.59-.5-.5-.68-.51l-.58-.01c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.95 1.24 3.15c.15.2 2.15 3.28 5.2 4.6.73.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

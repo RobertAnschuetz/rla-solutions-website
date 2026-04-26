@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RLA Solutions — Webdesign, das konvertiert</title>
+  <meta name="description" content="RLA Solutions entwickelt leistungsstarke Websites, die Besucher in Kunden verwandeln. Strategiegeleitetes Design, conversion-fokussierte Entwicklung.">
+
+  <!-- Open Graph / Social sharing -- UPDATE domain URLs after deploying to production -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RLA Solutions">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:url" content="https://rla-solutions.de/">
+  <meta property="og:title" content="RLA Solutions — Webdesign, das konvertiert">
+  <meta property="og:description" content="Webdesign aus München. Von der Idee zum Launch — Websites, die wirklich konvertieren.">
+  <meta property="og:image" content="https://rla-solutions.de/assets/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RLA Solutions — Websites, die begeistern">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RLA Solutions — Webdesign, das konvertiert">
+  <meta name="twitter:description" content="Webdesign aus München. Von der Idee zum Launch — Websites, die wirklich konvertieren.">
+  <meta name="twitter:image" content="https://rla-solutions.de/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Hreflang: tell Google which language version serves which audience -->
+  <link rel="alternate" hreflang="de" href="https://rla-solutions.de/">
+  <link rel="alternate" hreflang="en" href="https://rla-solutions.de/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://rla-solutions.de/">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Cursor follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-mark">RLA</span>
+        <span class="nav__logo-text">Solutions</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#leistungen" class="nav__link">Services</a>
+        <a href="#projekte" class="nav__link">Projekte</a>
+        <a href="#prozess" class="nav__link">Prozess</a>
+        <a href="#kundenstimmen" class="nav__link">Kundenstimmen</a>
+        <a href="#preise" class="nav__link">Preise</a>
+        <a href="#kontakt" class="nav__link">Kontakt</a>
+        <a href="about.html" class="nav__link">Über mich</a>
+      </div>
+      <div class="nav__actions">
+        <div class="nav__lang">
+          <a href="index.html" class="active">DE</a>
+          <span class="nav__lang-sep">|</span>
+          <a href="en/index.html">EN</a>
+        </div>
+        <a href="#kontakt" class="nav__cta">Projekt starten</a>
+        <button class="nav__burger" id="navBurger" aria-label="Menü umschalten">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu
+       Lives outside .nav deliberately: .nav.scrolled applies backdrop-filter,
+       which makes the nav a containing block for position: fixed descendants.
+       If the menu were nested inside, its `inset: 0` would resolve against the
+       tiny nav bar height instead of the viewport once the user scrolled. -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="#leistungen" class="nav__mobile-link">Services</a>
+    <a href="#projekte" class="nav__mobile-link">Projekte</a>
+    <a href="#prozess" class="nav__mobile-link">Prozess</a>
+    <a href="#kundenstimmen" class="nav__mobile-link">Kundenstimmen</a>
+    <a href="#preise" class="nav__mobile-link">Preise</a>
+    <a href="#kontakt" class="nav__mobile-link">Kontakt</a>
+    <a href="about.html" class="nav__mobile-link">Über mich</a>
+    <a href="#kontakt" class="nav__mobile-link nav__mobile-cta">Projekt starten</a>
+    <div class="nav__mobile-lang">
+      <a href="en/index.html">EN</a>
+      <span class="nav__mobile-lang-sep">|</span>
+      <a href="index.html" class="active">DE</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__gradient hero__gradient--1"></div>
+      <div class="hero__gradient hero__gradient--2"></div>
+      <div class="hero__gradient hero__gradient--3"></div>
+      <div class="hero__noise"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="hero__title-line reveal">Ich baue</span>
+        <span class="hero__title-line reveal">Websites, die</span>
+        <span class="hero__title-line reveal"><span class="rotating-word" data-text-rotate data-words="begeistern.,Vertrauen schaffen.,auffallen.,konvertieren.,Kunden gewinnen.,wirklich wirken.,verkaufen.">begeistern.</span></span>
+      </h1>
+      <div class="hero__actions reveal">
+        <a href="#kontakt" class="btn btn--primary">
+          <span>Kostenloses Erstgespräch</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+        </a>
+        <a href="#projekte" class="btn btn--ghost">
+          <span>Meine Projekte</span>
+        </a>
+      </div>
+      <div class="hero__stats reveal">
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="30">0</span><span class="hero__stat-suffix">+</span>
+          <span class="hero__stat-label">Projekte realisiert</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="24">0</span><span class="hero__stat-suffix">h</span>
+          <span class="hero__stat-label">Antwortzeit</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="95">0</span><span class="hero__stat-suffix">+</span>
+          <span class="hero__stat-label">PageSpeed Score</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="leistungen">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Was ich tue</span>
+        <h2 class="section-title">Services für <br><em>Ihr Unternehmen.</em></h2>
+      </div>
+      <div class="services__grid">
+        <div class="service-card reveal" data-delay="0">
+          <div class="service-card__header">
+            <span class="service-card__number">01</span>
+            <h3 class="service-card__title">Ich gestalte Ihren Online-Auftritt.</h3>
+          </div>
+          <p class="service-card__desc">Ich gestalte Ihre Website so, dass sie Ihre Marke widerspiegelt, Vertrauen schafft und Besucher zu Kunden macht.</p>
+        </div>
+        <div class="service-card reveal" data-delay="100">
+          <div class="service-card__header">
+            <span class="service-card__number">02</span>
+            <h3 class="service-card__title">Ich halte Ihre Technik stabil.</h3>
+          </div>
+          <p class="service-card__desc">Blitzschnell geladen auf Handy, Tablet und Computer. Sicher, datenschutzkonform und so robust, dass Sie sich um nichts kümmern müssen.</p>
+        </div>
+        <div class="service-card reveal" data-delay="200">
+          <div class="service-card__header">
+            <span class="service-card__number">03</span>
+            <h3 class="service-card__title">Ich bringe Kunden zu Ihnen.</h3>
+          </div>
+          <p class="service-card__desc">Ich sorge dafür, dass Ihre Kunden Sie online finden — auch wenn sie nur schnell „Apotheke in München" oder „Fahrradladen in Ihrer Nähe" suchen.</p>
+        </div>
+        <div class="service-card reveal" data-delay="300">
+          <div class="service-card__header">
+            <span class="service-card__number">04</span>
+            <h3 class="service-card__title">Ich nehme Ihnen Arbeit ab.</h3>
+          </div>
+          <p class="service-card__desc">Automatische Antworten, Online-Buchungen oder ein Chatbot, der häufige Fragen beantwortet — damit Sie sich aufs Wesentliche konzentrieren können.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Work Section -->
+  <section class="work" id="projekte" data-work-carousel>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Ausgewählte Projekte & Vorlagen</span>
+        <h2 class="section-title">Projekte, die <br><em>Ergebnisse liefern.</em></h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="work__carousel">
+        <button type="button" class="work__nav work__nav--prev" data-work-prev aria-label="Vorheriges Projekt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" class="work__nav work__nav--next" data-work-next aria-label="Nächstes Projekt">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="work__edge-fade work__edge-fade--left"></div>
+        <div class="work__edge-fade work__edge-fade--right"></div>
+        <div class="work__track" data-work-track tabindex="0" aria-label="Projekte — horizontal scrollbar">
+        <a href="https://apotheke-bovenden.de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-apotheke.png" alt="Apotheke am Feldtorweg — Apothekenwebsite" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Website besuchen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">HEALTHCARE</span>
+            <h3 class="work-card__title">Apotheke am Feldtorweg</h3>
+            <p class="work-card__desc">Vollständige Website für eine Apotheke in Bovenden — mit E-Rezept-Service, Online-Shop und Lieferservice.</p>
+          </div>
+        </a>
+        <a href="https://panoramaradsport.netlify.app/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-panorama.png" alt="Panorama Radsport — Fahrradgeschäft Website München" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Website besuchen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">RETAIL</span>
+            <h3 class="work-card__title">Panorama Radsport</h3>
+            <p class="work-card__desc">Elegante Website für ein Münchner Fahrradgeschäft mit Servicebuchung, Markenpräsentation und Fahrradkatalog.</p>
+          </div>
+        </a>
+        <a href="https://physiofokus.netlify.app/de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-physiofokus.png" alt="PhysioFokus — Physiotherapie-Praxis Website München" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Website besuchen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">HEALTHCARE</span>
+            <h3 class="work-card__title">PhysioFokus</h3>
+            <p class="work-card__desc">Zweisprachige Physiotherapie-Praxiswebsite mit Online-Buchung, Leistungsübersicht und Teamvorstellung.</p>
+          </div>
+        </a>
+        <a href="https://ssautomobile-goettingen.de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-ssautomobile.png" alt="S&amp;S Automobile Göttingen — Autohaus Website" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Website besuchen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">AUTOMOTIVE</span>
+            <h3 class="work-card__title">S&amp;S Automobile Göttingen</h3>
+            <p class="work-card__desc">Moderne Website für ein Göttinger Autohaus mit Fahrzeugpräsentation, Kontaktbereich und klarer Leistungsübersicht.</p>
+          </div>
+        </a>
+        <a href="https://musterapotheke2.netlify.app/de" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-musterapotheke2.png" alt="Apothekenvorlage Rot — Vorlage für Apothekenwebsites" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Vorlage ansehen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">VORLAGE</span>
+            <h3 class="work-card__title">Apothekenvorlage Rot</h3>
+            <p class="work-card__desc">Klassische Vorlage im warmen Rot — mit E-Rezept-Service, App-Integration und klarer Hero-Bühne. Sofort anpassbar an Ihr Branding.</p>
+          </div>
+        </a>
+        <a href="https://templateapothekenwebsite.netlify.app/de" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-templateapotheke.png" alt="Apothekenvorlage Grün — Vorlage für Apothekenwebsites" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Vorlage ansehen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">VORLAGE</span>
+            <h3 class="work-card__title">Apothekenvorlage Grün</h3>
+            <p class="work-card__desc">Editoriale Vorlage im grün-cremen Design — ruhig, klar und zweisprachig, mit Rezept-Einlöse-CTA und Teamvorstellung. Sofort anpassbar an Ihr Branding.</p>
+          </div>
+        </a>
+        <a href="https://kapselapothekenwebsite.netlify.app/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="assets/portfolio-kapsel.png" alt="KAPSEL — moderne Apothekenvorlage" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Vorlage ansehen
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">VORLAGE</span>
+            <h3 class="work-card__title">KAPSEL — Apothekenvorlage Modern</h3>
+            <p class="work-card__desc">Mutige Vorlage mit Editorial-Serif, Lime-Akzent und Live-E-Rezept-Status — für Apotheken, die digital auffallen wollen. Sofort anpassbar an Ihr Branding.</p>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="work__progress" aria-hidden="true">
+        <div class="work__progress-fill" data-work-progress></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process" id="prozess">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Mein Prozess</span>
+        <h2 class="section-title">Von der Idee zum Launch Ihrer Website <br><em>in vier Schritten.</em></h2>
+      </div>
+      <div class="process__timeline">
+        <div class="process__step reveal" data-delay="0">
+          <div class="process__step-marker">
+            <span class="process__step-num">01</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Verstehen</h3>
+            <p>Wir sprechen miteinander. Ich lerne Ihr Unternehmen, Ihre Kunden und Ihre Ziele kennen — damit die Website genau zu Ihnen passt.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="150">
+          <div class="process__step-marker">
+            <span class="process__step-num">02</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Gestalten</h3>
+            <p>Ich entwerfe, wie Ihre Website aussehen und funktionieren soll. Sie sehen alles vorab — und wir passen es an, bis es für Sie perfekt ist.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="300">
+          <div class="process__step-marker">
+            <span class="process__step-num">03</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Umsetzen</h3>
+            <p>Ich baue Ihre Website — schnell, sicher und auf jedem Handy, Tablet und Computer problemlos nutzbar. Alles ausgiebig getestet, bevor es online geht.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="450">
+          <div class="process__step-marker">
+            <span class="process__step-num">04</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Starten & Begleiten</h3>
+            <p>Ihre Website geht live — und ich bleibe an Ihrer Seite. Ich kümmere mich um Updates, beobachte, was funktioniert, und helfe, damit Ihre Website wirklich Ergebnisse bringt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="kundenstimmen">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Kundenstimmen</span>
+        <h2 class="section-title">Was meine <br><em>Kunden sagen.</em></h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal" data-delay="0">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"Sie haben unsere Online-Präsenz komplett transformiert. Absolut herausragende Arbeit."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JK</div>
+            <div>
+              <div class="testimonial-card__name">Dr. Julia Kolodziej</div>
+              <div class="testimonial-card__role">Apothekerin</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="100">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"Das schnellste und professionellste Web-Team, mit dem ich je gearbeitet habe. Sie haben genau das geliefert, was versprochen wurde — pünktlich und über den Erwartungen."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">CM</div>
+            <div>
+              <div class="testimonial-card__name">Christian Mullheim</div>
+              <div class="testimonial-card__role">Apothekeninhaber</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="200">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"Wir haben durch die neue Website über 40% mehr Aufrufe unserer Website gehabt und unseren Umsatz über unsere digitalen Kanäle deutlich gesteigert."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">KE</div>
+            <div>
+              <div class="testimonial-card__name">Kristina Elter</div>
+              <div class="testimonial-card__role">Apothekerin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="preise">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Preise</span>
+        <h2 class="section-title">Klare Preise. <br><em>Planbare Ergebnisse.</em></h2>
+        <p class="section-desc">Jede Website ist einzigartig. Diese Pakete geben Ihnen einen klaren Ausgangspunkt — ich passe den Umfang an Ihre Bedürfnisse an.</p>
+      </div>
+      <div class="pricing__grid">
+        <div class="pricing-card reveal" data-delay="0">
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Starter</span>
+            <p class="pricing-card__desc">Perfekt für kleine Unternehmen, die zum ersten Mal online gehen.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">500</span>
+              <span class="pricing-card__period">einmalig</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ 24,99 &euro; / Monat</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Bis zu 5 Seiten
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Responsives Design
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Kontaktformular + E-Mails
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Basis-SEO-Setup
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; Anpassungen inklusive
+            </li>
+          </ul>
+          <a href="#kontakt" class="btn btn--outline btn--full">Loslegen</a>
+        </div>
+        <div class="pricing-card pricing-card--featured reveal" data-delay="100">
+          <div class="pricing-card__badge">Most Popular</div>
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Professional</span>
+            <p class="pricing-card__desc">Für wachsende Unternehmen, die online ernst durchstarten wollen.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">1.000</span>
+              <span class="pricing-card__period">einmalig</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ 29,99 &euro; / Monat</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Bis zu 15 Seiten
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Individuelles Design-System
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              CMS-Integration
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Erweiterte SEO &amp; Analytics
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Performance-Optimierung
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; Anpassungen inklusive
+            </li>
+          </ul>
+          <a href="#kontakt" class="btn btn--primary btn--full">Loslegen</a>
+        </div>
+        <div class="pricing-card reveal" data-delay="200">
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Enterprise</span>
+            <p class="pricing-card__desc">Kompletter digitaler Auftritt für etablierte Marken mit Wachstumskurs.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">5.000</span>
+              <span class="pricing-card__period">einmalig</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ 39,99 &euro; / Monat</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Unbegrenzte Seiten
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              E-Commerce / Web-App
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Volle SEO- + Content-Strategie
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; Anpassungen inklusive
+            </li>
+          </ul>
+          <a href="#kontakt" class="btn btn--outline btn--full">Loslegen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section -->
+  <section class="contact" id="kontakt">
+    <div class="container">
+      <div class="contact__layout">
+        <div class="contact__info reveal">
+          <span class="section-label">Kontakt</span>
+          <h2 class="contact__title">Bereit, etwas <span class="rotating-word" data-text-rotate data-words="Großartiges,Inspirierendes,Innovatives,für Ihren Umsatz,für Ihre Marke">Großartiges</span> zu erschaffen?</h2>
+          <p class="contact__desc">Erzählen Sie mir von Ihrem Projekt und ich melde mich innerhalb von 24 Stunden mit einem kostenlosen Angebot — unverbindlich, persönlich und auf Sie zugeschnitten.</p>
+          <div class="contact__details">
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+4917662525801">+49 176 62525801</a>
+            </div>
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:robert.anschuetz@gmx.de">robert.anschuetz@gmx.de</a>
+            </div>
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>München, Deutschland</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact__form reveal" id="contactForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="name">Vollständiger Name</label>
+            <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+          </div>
+          <!-- Honeypot — invisible to humans, but bots fill every field. JS
+               (and FormSubmit's `_honey` server-side check, when wired up)
+               silently discards submissions where this has any value. -->
+          <div class="form-group form-group--honeypot" aria-hidden="true">
+            <label for="website">Lassen Sie dieses Feld leer</label>
+            <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="email" id="email" name="email" placeholder="max@firma.de" required>
+          </div>
+          <div class="form-group">
+            <label for="budget">Budgetrahmen</label>
+            <select id="budget" name="budget">
+              <option value="">Budgetrahmen wählen</option>
+              <option value="starter">€500 – €1.000</option>
+              <option value="professional">€1.000 – €5.000</option>
+              <option value="enterprise">€5.000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Projektdetails</label>
+            <textarea id="message" name="message" rows="4" placeholder="Erzählen Sie mir von Ihrem Projekt, Zeitplan und Zielen..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>Anfrage senden</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+          </button>
+          <p class="contact__form-note">Kostenlose Beratung. Unverbindlich. Antwort innerhalb von 24 Stunden.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq__layout">
+        <div class="faq__header reveal">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Fragen? <br><em>Antworten.</em></h2>
+          <p class="faq__note">Ihre Frage ist nicht dabei? <a href="#kontakt">Schreiben Sie mir</a> — ich antworte innerhalb von 24 Stunden.</p>
+        </div>
+        <div class="faq__list">
+          <div class="faq-item reveal" data-delay="0">
+            <button class="faq-item__trigger">
+              <span>Wie lange dauert ein typisches Projekt?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Die meisten Projekte gehen innerhalb von 3–4 Wochen live. Landing Pages können in nur 1–2 Wochen fertig sein, während komplexe Plattformen 8+ Wochen dauern können. Ich gebe Ihnen vorab einen klaren Zeitplan.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="50">
+            <button class="faq-item__trigger">
+              <span>Welche Technologien verwenden Sie?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Ich arbeite hauptsächlich mit Next.js, React und TypeScript für maximale Performance und Skalierbarkeit. Für das Styling nutze ich Tailwind CSS. Backend und Datenbanken mit Supabase, und ich deploye auf Vercel für blitzschnelle globale Auslieferung.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="100">
+            <button class="faq-item__trigger">
+              <span>Bieten Sie laufende Wartung an?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Auf jeden Fall. Jedes Paket beinhaltet Post-Launch-Support mit laufenden Updates, Content-Änderungen, Performance-Monitoring und Feature-Erweiterungen.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="150">
+            <button class="faq-item__trigger">
+              <span>Wird meine Website SEO-optimiert sein?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Ja — immer. Jede Website umfasst technische SEO-Grundlagen: Strukturierte Daten, Meta-Tags, Sitemaps, Bildoptimierung, Core Web Vitals Tuning und Mobile-First Responsive Design. Ich strebe PageSpeed 95+ an.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="200">
+            <button class="faq-item__trigger">
+              <span>Kann ich Inhalte nach dem Launch selbst ändern?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Ja. Ich integriere benutzerfreundliche CMS-Lösungen, damit Sie Texte, Bilder und Seiten ohne Programmierkenntnisse bearbeiten können. Ich schule Sie vor der Übergabe in allem.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="250">
+            <button class="faq-item__trigger">
+              <span>Warum kein Template oder Baukasten?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Templates sind begrenzt. Sie können nicht mit individueller Performance mithalten (ich erreiche PageSpeed 95+ vs. die typischen 50–70 von Baukästen), einzigartigem Design, das Ihre Marke widerspiegelt, oder den erweiterten Funktionen, die nötig sind, um Besucher wirklich zu konvertieren.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <span class="footer__logo-mark">RLA</span>
+            <span class="footer__logo-text">Solutions</span>
+          </a>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Navigation</h4>
+            <a href="#leistungen">Services</a>
+            <a href="#projekte">Projekte</a>
+            <a href="#prozess">Prozess</a>
+            <a href="#preise">Preise</a>
+          </div>
+          <div class="footer__col">
+            <h4>Unternehmen</h4>
+            <a href="about.html">Über mich</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+          <div class="footer__col">
+            <h4>Verbinden</h4>
+            <a href="https://www.linkedin.com/in/robert-ansch%C3%BCtz-2444a4111/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span class="js-year">2026</span> RLA Solutions. Alle Rechte vorbehalten.</p>
+        <div class="footer__legal">
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="#">AGB</a>
+          <a href="impressum.html">Impressum</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button — shows once the user scrolls past the hero -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Zurück nach oben scrollen"
+    title="Nach oben"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- Floating WhatsApp button -->
+  <a
+    class="wa-fab"
+    href="https://wa.me/4917662525801?text=Hallo%20Robert%20Ansch%C3%BCtz%2C%20ich%20bin%20an%20einer%20Website%20interessiert%21"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp: Nachricht an Robert Anschütz schreiben"
+    title="Schreiben Sie mir auf WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.03 3C9.39 3 4 8.4 4 15.04c0 2.3.66 4.54 1.9 6.5L4 29l7.66-1.88a12 12 0 0 0 4.37.82h.01c6.63 0 12.03-5.4 12.03-12.04A12 12 0 0 0 16.03 3Zm0 21.9h-.01a10 10 0 0 1-5.08-1.39l-.36-.22-4.55 1.12 1.14-4.43-.24-.38a9.9 9.9 0 0 1-1.52-5.31A9.97 9.97 0 0 1 16.03 4.97a9.97 9.97 0 0 1 9.97 9.97 9.97 9.97 0 0 1-9.97 9.96Zm5.47-7.46c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.47.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.24-.25-.59-.5-.5-.68-.51l-.58-.01c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.95 1.24 3.15c.15.2 2.15 3.28 5.2 4.6.73.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

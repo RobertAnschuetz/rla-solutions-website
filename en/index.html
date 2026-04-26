@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RLA Solutions — Web Design That Converts</title>
+  <meta name="description" content="RLA Solutions designs high-performance websites that turn visitors into customers. Strategy-led design, conversion-focused development.">
+
+  <!-- Open Graph / Social sharing -- UPDATE domain URLs after deploying to production -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RLA Solutions">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:url" content="https://rla-solutions.de/en/index.html">
+  <meta property="og:title" content="RLA Solutions — Web Design That Converts">
+  <meta property="og:description" content="Web design from Munich. From concept to launch — websites that truly convert.">
+  <meta property="og:image" content="https://rla-solutions.de/assets/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RLA Solutions — Websites that excite">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RLA Solutions — Web Design That Converts">
+  <meta name="twitter:description" content="Web design from Munich. From concept to launch — websites that truly convert.">
+  <meta name="twitter:image" content="https://rla-solutions.de/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="de" href="https://rla-solutions.de/">
+  <link rel="alternate" hreflang="en" href="https://rla-solutions.de/en/index.html">
+  <link rel="alternate" hreflang="x-default" href="https://rla-solutions.de/">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <!-- Cursor follower -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-mark">RLA</span>
+        <span class="nav__logo-text">Solutions</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#services" class="nav__link">Services</a>
+        <a href="#work" class="nav__link">Work</a>
+        <a href="#process" class="nav__link">Process</a>
+        <a href="#testimonials" class="nav__link">Testimonials</a>
+        <a href="#pricing" class="nav__link">Pricing</a>
+        <a href="#contact" class="nav__link">Contact</a>
+        <a href="about.html" class="nav__link">About me</a>
+      </div>
+      <div class="nav__actions">
+        <div class="nav__lang">
+          <a href="../index.html">DE</a>
+          <span class="nav__lang-sep">|</span>
+          <a href="index.html" class="active">EN</a>
+        </div>
+        <a href="#contact" class="nav__cta">Start a Project</a>
+        <button class="nav__burger" id="navBurger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile menu — outside .nav so .nav.scrolled's backdrop-filter doesn't
+       hijack the containing block for its position: fixed. -->
+  <div class="nav__mobile" id="navMobile">
+    <a href="#services" class="nav__mobile-link">Services</a>
+    <a href="#work" class="nav__mobile-link">Work</a>
+    <a href="#process" class="nav__mobile-link">Process</a>
+    <a href="#testimonials" class="nav__mobile-link">Testimonials</a>
+    <a href="#pricing" class="nav__mobile-link">Pricing</a>
+    <a href="#contact" class="nav__mobile-link">Contact</a>
+    <a href="about.html" class="nav__mobile-link">About me</a>
+    <a href="#contact" class="nav__mobile-link nav__mobile-cta">Start a Project</a>
+    <div class="nav__mobile-lang">
+      <a href="../index.html">DE</a>
+      <span class="nav__mobile-lang-sep">|</span>
+      <a href="index.html" class="active">EN</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero__bg">
+      <div class="hero__gradient hero__gradient--1"></div>
+      <div class="hero__gradient hero__gradient--2"></div>
+      <div class="hero__gradient hero__gradient--3"></div>
+      <div class="hero__noise"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title">
+        <span class="hero__title-line reveal">I build</span>
+        <span class="hero__title-line reveal">websites that</span>
+        <span class="hero__title-line reveal"><span class="rotating-word" data-text-rotate data-words="delight.,build trust.,stand out.,convert.,win customers.,truly work.,sell.">delight.</span></span>
+      </h1>
+      <div class="hero__actions reveal">
+        <a href="#contact" class="btn btn--primary">
+          <span>Book a free call</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+        </a>
+        <a href="#work" class="btn btn--ghost">
+          <span>My Work</span>
+        </a>
+      </div>
+      <div class="hero__stats reveal">
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="30">0</span><span class="hero__stat-suffix">+</span>
+          <span class="hero__stat-label">Projects Delivered</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="24">0</span><span class="hero__stat-suffix">h</span>
+          <span class="hero__stat-label">Response Time</span>
+        </div>
+        <div class="hero__stat-divider"></div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="95">0</span><span class="hero__stat-suffix">+</span>
+          <span class="hero__stat-label">PageSpeed Score</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">What I Do</span>
+        <h2 class="section-title">Services for <br><em>your business.</em></h2>
+      </div>
+      <div class="services__grid">
+        <div class="service-card reveal" data-delay="0">
+          <div class="service-card__header">
+            <span class="service-card__number">01</span>
+            <h3 class="service-card__title">I shape your online presence.</h3>
+          </div>
+          <p class="service-card__desc">I design your website so it reflects your brand, builds trust, and turns visitors into customers.</p>
+        </div>
+        <div class="service-card reveal" data-delay="100">
+          <div class="service-card__header">
+            <span class="service-card__number">02</span>
+            <h3 class="service-card__title">I keep your tech stable.</h3>
+          </div>
+          <p class="service-card__desc">Blazing-fast loading on phone, tablet and desktop. Secure, GDPR-compliant and so reliable you don't have to worry about a thing.</p>
+        </div>
+        <div class="service-card reveal" data-delay="200">
+          <div class="service-card__header">
+            <span class="service-card__number">03</span>
+            <h3 class="service-card__title">I bring customers to you.</h3>
+          </div>
+          <p class="service-card__desc">I make sure your customers find you online — even when they're just quickly searching for "pharmacy in Munich" or "bike shop near me."</p>
+        </div>
+        <div class="service-card reveal" data-delay="300">
+          <div class="service-card__header">
+            <span class="service-card__number">04</span>
+            <h3 class="service-card__title">I take work off your plate.</h3>
+          </div>
+          <p class="service-card__desc">Automated replies, online bookings, or a chatbot that answers common questions — so you can focus on what really matters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Work Section -->
+  <section class="work" id="work" data-work-carousel>
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Selected Work & Templates</span>
+        <h2 class="section-title">Projects that <br><em>deliver results.</em></h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="work__carousel">
+        <button type="button" class="work__nav work__nav--prev" data-work-prev aria-label="Previous project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button type="button" class="work__nav work__nav--next" data-work-next aria-label="Next project">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <div class="work__edge-fade work__edge-fade--left"></div>
+        <div class="work__edge-fade work__edge-fade--right"></div>
+        <div class="work__track" data-work-track tabindex="0" aria-label="Projects — horizontal scrollbar">
+        <a href="https://apotheke-bovenden.de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-apotheke.png" alt="Apotheke am Feldtorweg — Pharmacy website" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Visit Website
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">HEALTHCARE</span>
+            <h3 class="work-card__title">Apotheke am Feldtorweg</h3>
+            <p class="work-card__desc">Full website for a local pharmacy in Bovenden — featuring e-prescription service, online shop, and delivery integration.</p>
+          </div>
+        </a>
+        <a href="https://panoramaradsport.netlify.app/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-panorama.png" alt="Panorama Radsport — Bicycle shop website Munich" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Visit Website
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">RETAIL</span>
+            <h3 class="work-card__title">Panorama Radsport</h3>
+            <p class="work-card__desc">Elegant website for a Munich bicycle shop with service booking, brand showcase, and bike catalogue.</p>
+          </div>
+        </a>
+        <a href="https://physiofokus.netlify.app/de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-physiofokus.png" alt="PhysioFokus — Physiotherapy practice website Munich" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Visit Website
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">HEALTHCARE</span>
+            <h3 class="work-card__title">PhysioFokus</h3>
+            <p class="work-card__desc">Bilingual physiotherapy practice website with online booking, service overview, and team presentation.</p>
+          </div>
+        </a>
+        <a href="https://ssautomobile-goettingen.de/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-ssautomobile.png" alt="S&amp;S Automobile Göttingen — Car dealership website" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">Visit Website
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag">AUTOMOTIVE</span>
+            <h3 class="work-card__title">S&amp;S Automobile Göttingen</h3>
+            <p class="work-card__desc">Modern website for a Göttingen car dealership with vehicle showcase, contact area, and a clear service overview.</p>
+          </div>
+        </a>
+        <a href="https://musterapotheke2.netlify.app/de" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-musterapotheke2.png" alt="Pharmacy Template — Red" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">View Template
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">TEMPLATE</span>
+            <h3 class="work-card__title">Pharmacy Template — Red</h3>
+            <p class="work-card__desc">Classic template in a warm red — with e-prescription service, app integration, and a clear hero stage. Instantly adaptable to your branding.</p>
+          </div>
+        </a>
+        <a href="https://templateapothekenwebsite.netlify.app/de" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-templateapotheke.png" alt="Pharmacy Template — Green" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">View Template
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">TEMPLATE</span>
+            <h3 class="work-card__title">Pharmacy Template — Green</h3>
+            <p class="work-card__desc">Editorial template in green and cream — calm, clear, and bilingual, with prescription CTA and team intro. Instantly adaptable to your branding.</p>
+          </div>
+        </a>
+        <a href="https://kapselapothekenwebsite.netlify.app/" target="_blank" class="work-card">
+          <div class="work-card__image">
+            <img src="../assets/portfolio-kapsel.png" alt="KAPSEL — modern pharmacy template" loading="lazy">
+            <div class="work-card__overlay">
+              <span class="work-card__view">View Template
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+              </span>
+            </div>
+          </div>
+          <div class="work-card__info">
+            <span class="work-card__tag work-card__tag--template">TEMPLATE</span>
+            <h3 class="work-card__title">KAPSEL — Modern Pharmacy Template</h3>
+            <p class="work-card__desc">Bold template with editorial serif, lime accent, and a live e-prescription status — for pharmacies that want to stand out digitally. Instantly adaptable to your branding.</p>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="work__progress" aria-hidden="true">
+        <div class="work__progress-fill" data-work-progress></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">My Process</span>
+        <h2 class="section-title">From idea to launching your website <br><em>in four steps.</em></h2>
+      </div>
+      <div class="process__timeline">
+        <div class="process__step reveal" data-delay="0">
+          <div class="process__step-marker">
+            <span class="process__step-num">01</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Understanding</h3>
+            <p>We talk. I learn about your business, your customers, and your goals — so the website is a perfect fit for you.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="150">
+          <div class="process__step-marker">
+            <span class="process__step-num">02</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Designing</h3>
+            <p>I design how your website will look and work. You see everything in advance — and we adjust it until it's perfect for you.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="300">
+          <div class="process__step-marker">
+            <span class="process__step-num">03</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Building</h3>
+            <p>I build your website — fast, secure, and smooth to use on any phone, tablet, or computer. Thoroughly tested before it goes live.</p>
+          </div>
+        </div>
+        <div class="process__step reveal" data-delay="450">
+          <div class="process__step-marker">
+            <span class="process__step-num">04</span>
+            <div class="process__step-line"></div>
+          </div>
+          <div class="process__step-content">
+            <h3>Launch & Support</h3>
+            <p>Your website goes live — and I stay at your side. I handle updates, watch what works, and help your site truly deliver results.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Testimonials</span>
+        <h2 class="section-title">What my <br><em>clients say.</em></h2>
+      </div>
+      <div class="testimonials__grid">
+        <div class="testimonial-card reveal" data-delay="0">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"They completely transformed our online presence. Absolutely incredible work."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">JK</div>
+            <div>
+              <div class="testimonial-card__name">Dr. Julia Kolodziej</div>
+              <div class="testimonial-card__role">Pharmacist</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="100">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"The fastest, most professional web team I've ever worked with. They delivered exactly what was promised — on time and beyond expectations."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">CM</div>
+            <div>
+              <div class="testimonial-card__name">Christian Mullheim</div>
+              <div class="testimonial-card__role">Pharmacy Owner</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal" data-delay="200">
+          <div class="testimonial-card__stars">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testimonial-card__quote">"Our new website drove over 40% more traffic and significantly increased our revenue through digital channels."</blockquote>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">KE</div>
+            <div>
+              <div class="testimonial-card__name">Kristina Elter</div>
+              <div class="testimonial-card__role">Pharmacist</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Pricing</span>
+        <h2 class="section-title">Clear pricing. <br><em>Predictable results.</em></h2>
+        <p class="section-desc">Every website is unique. These packages give you a clear starting point — I'll tailor the scope to fit your needs.</p>
+      </div>
+      <div class="pricing__grid">
+        <div class="pricing-card reveal" data-delay="0">
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Starter</span>
+            <p class="pricing-card__desc">Perfect for small businesses getting online for the first time.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">500</span>
+              <span class="pricing-card__period">one-time</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ &euro;24.99 / month</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 5 pages
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Responsive design
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Contact form + emails
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Basic SEO setup
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; adaptations included
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Get Started</a>
+        </div>
+        <div class="pricing-card pricing-card--featured reveal" data-delay="100">
+          <div class="pricing-card__badge">Most Popular</div>
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Professional</span>
+            <p class="pricing-card__desc">For growing businesses ready to make a serious impact online.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">1,000</span>
+              <span class="pricing-card__period">one-time</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ &euro;29.99 / month</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Up to 15 pages
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Custom design system
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              CMS integration
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Advanced SEO &amp; analytics
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Performance optimization
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; adaptations included
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--primary btn--full">Get Started</a>
+        </div>
+        <div class="pricing-card reveal" data-delay="200">
+          <div class="pricing-card__header">
+            <span class="pricing-card__label">Enterprise</span>
+            <p class="pricing-card__desc">Full-scale digital presence for established brands scaling fast.</p>
+          </div>
+          <div class="pricing-card__price">
+            <div class="pricing-card__price-main">
+              <span class="pricing-card__currency">€</span>
+              <span class="pricing-card__amount">5,000</span>
+              <span class="pricing-card__period">one-time</span>
+            </div>
+            <div class="pricing-card__price-monthly">+ &euro;39.99 / month</div>
+          </div>
+          <ul class="pricing-card__features">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Unlimited pages
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              E-commerce / web app
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Full SEO + content strategy
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hosting &amp; adaptations included
+            </li>
+          </ul>
+          <a href="#contact" class="btn btn--outline btn--full">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / CTA Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact__layout">
+        <div class="contact__info reveal">
+          <span class="section-label">Contact</span>
+          <h2 class="contact__title">Ready to create something <span class="rotating-word" data-text-rotate data-words="great?,inspiring?,innovative?,for your revenue?,for your brand?">great?</span></h2>
+          <p class="contact__desc">Tell me about your project and I'll get back to you within 24 hours with a free proposal — no obligation, personal, and tailored to you.</p>
+          <div class="contact__details">
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+4917662525801">+49 176 62525801</a>
+            </div>
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:robert.anschuetz@gmx.de">robert.anschuetz@gmx.de</a>
+            </div>
+            <div class="contact__detail">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Munich, Germany</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact__form reveal" id="contactForm" onsubmit="return false;">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Smith" required>
+          </div>
+          <!-- Honeypot — invisible to humans, but bots fill every field. JS
+               (and FormSubmit's `_honey` server-side check, when wired up)
+               silently discards submissions where this has any value. -->
+          <div class="form-group form-group--honeypot" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="john@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="budget">Budget Range</label>
+            <select id="budget" name="budget">
+              <option value="">Select your budget</option>
+              <option value="starter">€500 – €1,000</option>
+              <option value="professional">€1,000 – €5,000</option>
+              <option value="enterprise">€5,000+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell me about your project, timeline, and goals..."></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>Send Proposal Request</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 17 9.2-9.2M17 17V7H7"/></svg>
+          </button>
+          <p class="contact__form-note">Free consultation. No obligation. Response within 24 hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq__layout">
+        <div class="faq__header reveal">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Questions? <br><em>Answers.</em></h2>
+          <p class="faq__note">Don't see your question? <a href="#contact">Reach out</a> — I reply within 24 hours.</p>
+        </div>
+        <div class="faq__list">
+          <div class="faq-item reveal" data-delay="0">
+            <button class="faq-item__trigger">
+              <span>How long does a typical project take?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Most projects launch within 3–4 weeks. Landing pages can go live in as little as 1–2 weeks, while complex platforms may take 8+ weeks. I'll give you a clear timeline before we start.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="50">
+            <button class="faq-item__trigger">
+              <span>What technologies do you use?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>I work primarily with Next.js, React, and TypeScript for maximum performance and scalability. For styling, Tailwind CSS. Backend and databases with Supabase, and I deploy on Vercel for blazing-fast global delivery.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="100">
+            <button class="faq-item__trigger">
+              <span>Do you offer ongoing maintenance?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Absolutely. Every package includes post-launch support with ongoing updates, content changes, performance monitoring, and feature additions.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="150">
+            <button class="faq-item__trigger">
+              <span>Will my website be SEO-optimized?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Yes — always. Every site includes technical SEO fundamentals: structured data, meta tags, sitemaps, image optimization, Core Web Vitals tuning, and mobile-first responsive design. I target PageSpeed 95+.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="200">
+            <button class="faq-item__trigger">
+              <span>Can I update content myself after launch?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Yes. I integrate user-friendly CMS solutions so you can edit text, images, and pages without touching code. I'll train you on everything before handoff.</p>
+            </div>
+          </div>
+          <div class="faq-item reveal" data-delay="250">
+            <button class="faq-item__trigger">
+              <span>Why not use a template or page builder?</span>
+              <div class="faq-item__icon"><span></span><span></span></div>
+            </button>
+            <div class="faq-item__content">
+              <p>Templates are limited. They can't match custom performance (I hit PageSpeed 95+ vs. the typical 50–70 of builders), unique design that reflects your brand, or the advanced functionality needed to truly convert visitors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <span class="footer__logo-mark">RLA</span>
+            <span class="footer__logo-text">Solutions</span>
+          </a>
+        </div>
+        <div class="footer__links">
+          <div class="footer__col">
+            <h4>Navigate</h4>
+            <a href="#services">Services</a>
+            <a href="#work">Work</a>
+            <a href="#process">Process</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="footer__col">
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer__col">
+            <h4>Connect</h4>
+            <a href="https://www.linkedin.com/in/robert-ansch%C3%BCtz-2444a4111/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; <span class="js-year">2026</span> RLA Solutions. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="datenschutz.html">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="impressum.html">Imprint</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back-to-top button — shows once the user scrolls past the hero -->
+  <button
+    class="back-to-top"
+    id="backToTop"
+    type="button"
+    aria-label="Scroll back to top"
+    title="Back to top"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- Floating WhatsApp button -->
+  <a
+    class="wa-fab"
+    href="https://wa.me/4917662525801?text=Hello%20Robert%20Ansch%C3%BCtz%2C%20I%27m%20interested%20in%20a%20website%21"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="WhatsApp: Send Robert Anschütz a message"
+    title="Message me on WhatsApp"
+  >
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path d="M16.03 3C9.39 3 4 8.4 4 15.04c0 2.3.66 4.54 1.9 6.5L4 29l7.66-1.88a12 12 0 0 0 4.37.82h.01c6.63 0 12.03-5.4 12.03-12.04A12 12 0 0 0 16.03 3Zm0 21.9h-.01a10 10 0 0 1-5.08-1.39l-.36-.22-4.55 1.12 1.14-4.43-.24-.38a9.9 9.9 0 0 1-1.52-5.31A9.97 9.97 0 0 1 16.03 4.97a9.97 9.97 0 0 1 9.97 9.97 9.97 9.97 0 0 1-9.97 9.96Zm5.47-7.46c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.47.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.68-1.63-.93-2.24-.25-.59-.5-.5-.68-.51l-.58-.01c-.2 0-.53.08-.8.38-.28.3-1.06 1.04-1.06 2.54s1.09 2.95 1.24 3.15c.15.2 2.15 3.28 5.2 4.6.73.31 1.29.5 1.73.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.13-.27-.2-.57-.35Z"/>
+    </svg>
+  </a>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
