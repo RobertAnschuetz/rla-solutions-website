@@ -27,3 +27,7 @@ desktop.ini
 dist/
 build/
 node_modules/
+
+# Local-only design previews — never deploy
+preview-*.html
+css/style-*-override.css

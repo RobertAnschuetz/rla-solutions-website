@@ -1,7 +1,7 @@
 # RLA Solutions Webdesign
 
 ## Project Overview
-Marketing site for a solo web-design practice (Robert Anschütz, München). Editorial aesthetic — warm cream base with vermillion-orange accents. Bilingual (DE primary, EN mirror). Currently deployed on Netlify; may move to IONOS later, so all dynamic pieces must stay host-portable.
+Marketing site for a solo web-design practice (Robert Anschütz, München). Editorial aesthetic — warm cream base with red accents. Bilingual (DE primary, EN mirror). Currently deployed on Netlify; may move to IONOS later, so all dynamic pieces must stay host-portable.
 
 ## Tech Stack
 - Vanilla HTML/CSS/JS (no framework, no build step)
@@ -28,7 +28,7 @@ Hero → Services → Portfolio (horizontal carousel) → Process → Testimonia
 ### Palette (CSS variables in `:root`)
 - `--white` / `--cream` / `--sand` — warm neutrals
 - `--charcoal` / `--graphite` / `--muted` — text
-- `--primary` `#E8450E` — vermillion orange
+- `--primary` `#DC2626` — red
 - `--primary-light`, `--primary-glow` (12% alpha), `--primary-border-soft` (28% alpha, for decorative card borders)
 - `--accent` `#0055FF` (rarely used)
 

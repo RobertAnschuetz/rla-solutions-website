@@ -51,10 +51,10 @@
   --charcoal: #1B1B1E;
   --graphite: #2D2D32;
   --muted: #6B6B76;
-  --primary: #E8450E;
-  --primary-light: #FF6B35;
-  --primary-glow: rgba(232, 69, 14, 0.12);
-  --primary-border-soft: rgba(232, 69, 14, 0.28);
+  --primary: #DC2626;
+  --primary-light: #EF4444;
+  --primary-glow: rgba(220, 38, 38, 0.12);
+  --primary-border-soft: rgba(220, 38, 38, 0.28);
   --accent: #0055FF;
   --accent-light: #3377FF;
   --success: #10B981;
@@ -364,12 +364,12 @@ body:hover .cursor-glow {
 .btn--primary {
   background: var(--primary);
   color: white;
-  box-shadow: 0 4px 20px rgba(232, 69, 14, 0.25);
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.25);
 }
 
 .btn--primary:hover {
   background: var(--primary-light);
-  box-shadow: 0 6px 30px rgba(232, 69, 14, 0.35);
+  box-shadow: 0 6px 30px rgba(220, 38, 38, 0.35);
   transform: translateY(-2px);
 }
 
@@ -680,7 +680,7 @@ body:hover .cursor-glow {
 .hero__gradient--1 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(232, 69, 14, 0.15), transparent);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.15), transparent);
   top: -10%;
   right: -5%;
   animation: floatBlob1 20s ease-in-out infinite;
@@ -698,7 +698,7 @@ body:hover .cursor-glow {
 .hero__gradient--3 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, rgba(232, 69, 14, 0.08), transparent);
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.08), transparent);
   top: 40%;
   left: 30%;
   animation: floatBlob3 18s ease-in-out infinite;
@@ -1017,7 +1017,7 @@ body:hover .cursor-glow {
 }
 
 .service-card:hover {
-  border-color: rgba(232, 69, 14, 0.2);
+  border-color: rgba(220, 38, 38, 0.2);
   box-shadow: 0 12px 48px rgba(0,0,0,0.06);
   transform: translateY(-4px);
 }
@@ -1149,7 +1149,7 @@ body:hover .cursor-glow {
   cursor: pointer;
   z-index: 10;
   transform: translateY(-50%);
-  box-shadow: 0 4px 18px rgba(232, 69, 14, 0.32);
+  box-shadow: 0 4px 18px rgba(220, 38, 38, 0.32);
   transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out), background 0.3s var(--ease-out);
 }
 
@@ -1573,11 +1573,11 @@ body:hover .cursor-glow {
 
 .pricing-card--featured {
   border: 2px solid var(--primary);
-  box-shadow: 0 8px 40px rgba(232, 69, 14, 0.1);
+  box-shadow: 0 8px 40px rgba(220, 38, 38, 0.1);
 }
 
 .pricing-card--featured:hover {
-  box-shadow: 0 16px 60px rgba(232, 69, 14, 0.15);
+  box-shadow: 0 16px 60px rgba(220, 38, 38, 0.15);
 }
 
 .pricing-card__badge {
@@ -1726,7 +1726,7 @@ body:hover .cursor-glow {
 }
 
 .faq-item.open {
-  border-color: rgba(232, 69, 14, 0.2);
+  border-color: rgba(220, 38, 38, 0.2);
 }
 
 .faq-item__trigger {
@@ -2212,7 +2212,7 @@ body:hover .cursor-glow {
 }
 
 .todo-marker {
-  background: rgba(232, 69, 14, 0.06);
+  background: rgba(220, 38, 38, 0.06);
   border: 1px dashed var(--primary);
   padding: 14px 18px;
   border-radius: var(--radius-sm);
