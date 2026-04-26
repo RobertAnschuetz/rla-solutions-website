@@ -296,19 +296,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- Contact form handling ---
+  // Submits via fetch() to the form's `action` URL (FormSubmit's AJAX endpoint).
+  // No page redirect — the user stays on the page and sees an inline success
+  // state on the submit button.
+  //
+  // Spam guards (zero-friction):
+  //   1. Honeypot — `<input name="_honey">` is hidden from humans via CSS but
+  //      bots blindly fill every text field. Any value = bot. FormSubmit also
+  //      checks `_honey` server-side as a second layer.
+  //   2. Time check — humans take longer than 3s to read + fill the form;
+  //      a sub-3s submit is almost certainly a script.
+  // Both fail silently so bots don't learn what tripped them.
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    // Spam guards. Two zero-friction layers:
-    //   1. Honeypot — `<input name="_honey">` is hidden from humans via CSS but
-    //      bots blindly fill every text field. Any value = bot.
-    //      Field is named `_honey` to also be picked up by FormSubmit's built-in
-    //      server-side honeypot when the form is wired up later.
-    //   2. Time check — humans take longer than 3s to read + fill the form;
-    //      a sub-3s submit is almost certainly a script.
-    // Both fail silently so bots don't learn what tripped them.
     const formLoadedAt = Date.now();
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const honeypot = contactForm.querySelector('input[name="_honey"]');
       if ((honeypot && honeypot.value) || Date.now() - formLoadedAt < 3000) {
@@ -316,24 +319,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       const btn = contactForm.querySelector('button[type="submit"]');
       const originalHTML = btn.innerHTML;
-
       const isDE = document.documentElement.lang === 'de';
+
+      // Sending state
       btn.innerHTML = isDE ? '<span>Wird gesendet...</span>' : '<span>Sending...</span>';
       btn.disabled = true;
 
-      setTimeout(() => {
-        btn.innerHTML = isDE ? '<span>Gesendet! Wir melden uns.</span>' : '<span>Sent! We\'ll be in touch.</span>';
+      const restoreButton = () => {
+        btn.innerHTML = originalHTML;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.boxShadow = '';
+      };
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: 'POST',
+          body: new FormData(contactForm),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+
+        // Success state
+        btn.innerHTML = isDE
+          ? '<span>Gesendet! Ich melde mich.</span>'
+          : "<span>Sent! I'll be in touch.</span>";
         btn.style.background = 'var(--success)';
         btn.style.boxShadow = '0 4px 20px rgba(16, 185, 129, 0.25)';
-
-        setTimeout(() => {
-          btn.innerHTML = originalHTML;
-          btn.disabled = false;
-          btn.style.background = '';
-          btn.style.boxShadow = '';
-          contactForm.reset();
-        }, 3000);
-      }, 1500);
+        contactForm.reset();
+        setTimeout(restoreButton, 4000);
+      } catch (err) {
+        // Failure state — keep error visible a bit longer than success
+        btn.innerHTML = isDE
+          ? '<span>Senden fehlgeschlagen. Bitte später erneut versuchen.</span>'
+          : '<span>Failed to send. Please try again later.</span>';
+        btn.style.background = 'var(--primary)';
+        btn.style.boxShadow = '0 4px 20px rgba(220, 38, 38, 0.25)';
+        setTimeout(restoreButton, 5000);
+      }
     });
   }
 

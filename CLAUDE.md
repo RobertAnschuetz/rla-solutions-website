@@ -79,7 +79,7 @@ Main pages use the **personal "Ich"-voice** throughout (Ich baue, Ich gestalte, 
 - Hero counter animation (data-count)
 - Portfolio carousel (horizontal scroll + prev/next buttons + progress bar)
 - FAQ accordion
-- Contact form submit — **currently simulated**, see memory for planned FormSubmit integration
+- Contact form submit — wired to FormSubmit AJAX (`formsubmit.co/ajax/robert.anschuetz@rla-solutions.com`). Honeypot + 3s time-check run client-side, then `fetch()` POST. Success/error states shown inline on the submit button. No page redirect.
 - Back-to-top scroll watcher
 
 ## Deployment
@@ -110,8 +110,7 @@ git push main →─┤
 - All-Inkl-specific PHP includes (the site is static anyway)
 
 ## Notes & open items
-- Contact form only simulates submission — messages are not sent anywhere yet. Wire to FormSubmit at `robert.anschuetz@rla-solutions.com` when ready (host-portable, see memory).
-- Success button still reads "Gesendet! Wir melden uns." — needs updating to "Ich melde mich." when touching the form handler (`js/main.js` around line 285).
+- Contact form is live via FormSubmit — submissions email `robert.anschuetz@rla-solutions.com`. Form `_subject` = "Neue Anfrage über rla-solutions.com" (DE) / "New inquiry from rla-solutions.com" (EN), `_template=table` for readable formatting, `_captcha=false` (we have honeypot + time check instead). Success copy now says "Ich melde mich." (was "Wir melden uns.").
 - Portfolio uses real customer screenshots in `assets/portfolio-*.png`.
 - Hero stats: `30+ Projekte`, `24h Antwortzeit`, `95+ PageSpeed` — defensible claims, do not inflate.
 - Old `rla-solutions.de` domain mapping in KAS and the `/rla-solutions.de/` directory in webspace are orphaned (the .de domain is owned by someone else). Safe to delete via KAS → Domain and via WebFTP — pure cleanup, no functional impact.

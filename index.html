@@ -567,7 +567,19 @@
             </div>
           </div>
         </div>
-        <form class="contact__form reveal" id="contactForm" onsubmit="return false;">
+        <form
+          class="contact__form reveal"
+          id="contactForm"
+          action="https://formsubmit.co/ajax/robert.anschuetz@rla-solutions.com"
+          method="POST"
+        >
+          <!-- FormSubmit configuration (hidden inputs) — host-portable, GDPR-clean.
+               First submission ever: FormSubmit sends a verification email to the
+               destination address. Click the link once to activate; from then on
+               submissions arrive in the inbox. -->
+          <input type="hidden" name="_subject" value="Neue Anfrage über rla-solutions.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
           <div class="form-group">
             <label for="name">Vollständiger Name</label>
             <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
