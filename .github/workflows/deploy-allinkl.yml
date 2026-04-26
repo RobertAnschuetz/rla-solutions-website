@@ -1,0 +1,49 @@
+# Auto-deploy the static site to All-Inkl shared hosting via FTPS.
+#
+# Trigger: every push to `main`, plus manual run from the Actions tab
+# (workflow_dispatch). Credentials live in repository secrets, NOT in this
+# file. Configured to upload only the production-relevant files; project docs
+# and tooling files stay in the repo but never touch the live server.
+
+name: Deploy to All-Inkl
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Sync site to All-Inkl webspace via FTPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Sync via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.ALLINKL_HOST }}
+          username: ${{ secrets.ALLINKL_USER }}
+          password: ${{ secrets.ALLINKL_PASSWORD }}
+          server-dir: ${{ secrets.ALLINKL_PATH }}
+          local-dir: ./
+          # All-Inkl supports FTPS (FTP over TLS) on port 21. `loose` accepts
+          # the All-Inkl certificate chain without strict CA validation, which
+          # is the standard config for shared-host FTPS endpoints.
+          protocol: ftps
+          security: loose
+          log-level: minimal
+          # Patterns NOT to upload (and NOT to delete on the server). Everything
+          # else in the repo IS uploaded and the server is mirrored to match.
+          exclude: |
+            **/.git*/**
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            CLAUDE.md
+            README.md
+            package.json
+            package-lock.json
+            preview-*.html
