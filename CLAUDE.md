@@ -35,7 +35,7 @@ Images/             Source portrait PNG (not referenced by the site)
 ## Voice
 Personal first-person "I" (I help, I work alongside…). Plain, specific, no hype. British spelling (organisation, prioritised).
 
-**Do not invent credentials.** Background copy is deliberately generic ("more than twelve years in the pharmaceutical industry"); no employer names, client names, numbers or results unless Robert supplies them.
+**Do not invent credentials.** Background copy stays at what Robert has stated: more than twelve years in the pharmaceutical industry, a wide range of commercial roles, deep expertise, and recognised as a leader in commercial excellence (his wording, approved Nov 2026). No employer names, client names, numbers or results unless he supplies them.
 
 ## Contact form
 FormSubmit AJAX → `formsubmit.co/ajax/robert.anschuetz@rla-solutions.com`. Fields: name, company, email, topic (radio), message. `_subject` "New inquiry from rla-solutions.com", `_template=table`, `_captcha=false`. Spam protection: hidden `_honey` field + 3-second time check (bots get a fake success). Inline status via `#formStatus` (aria-live). The privacy policy mentions FormSubmit and possible non-EU processing.
