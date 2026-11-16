@@ -53,6 +53,9 @@ git push main →─┤
 
 **All-Inkl:** `.github/workflows/deploy-allinkl.yml` syncs via FTPS (`SamKirkland/FTP-Deploy-Action@v4`); the server is mirrored to the repo, so deleted files are deleted live. Secrets: `ALLINKL_HOST`, `ALLINKL_USER`, `ALLINKL_PASSWORD`, `ALLINKL_PATH` (`/rla-solutions.com/`).
 
+## Caching
+All-Inkl's Apache sends no cache headers by default, so browsers heuristically cached the old site for days after the Nov 2026 relaunch. `.htaccess` (Apache only, ignored by Netlify) now sets `no-cache` for HTML, 1h for CSS/JS, 1 week for images/fonts. **When changing `css/style.css` or `js/main.js`, bump the `?v=N` query** in all three HTML pages.
+
 ## Open items
 - Add specifics to the About section (roles, therapy areas, achievements) once Robert provides them.
 - Consider a real booking link (e.g. a calendar tool) for "Book an intro call"; today it scrolls to the contact form.
