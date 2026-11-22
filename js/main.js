@@ -114,7 +114,7 @@
     }
   }
 
-  // Links with data-topic (e.g. "Book a scoping call") preselect the form topic
+  // Links with data-topic (e.g. "Request a scoping call") preselect the form topic
   document.querySelectorAll('a[data-topic]').forEach((a) => {
     a.addEventListener('click', () => {
       const radio = document.querySelector('input[name="topic"][value="' + a.dataset.topic + '"]');
