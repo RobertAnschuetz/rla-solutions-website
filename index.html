@@ -21,7 +21,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=7">
+  <link rel="stylesheet" href="css/style.css?v=8">
   <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
@@ -76,29 +76,27 @@
 
     <!-- Hero -->
     <section class="hero">
+      <!-- Flowing uptake curves, drawn by main.js in the hero's real pixel size -->
+      <div class="hero__paths" aria-hidden="true"><svg id="heroPaths" focusable="false"></svg></div>
+
       <div class="container">
-        <h1 class="hero__title">Commercial excellence and applied AI for pharma.</h1>
+        <a class="hero__offer" href="assets/downloads/rla-copilot-training-offer.pdf" download="RLA-Solutions-Copilot-Training-Offer.pdf" type="application/pdf">
+          <strong>Copilot training for pharma teams</strong>
+          <span class="hero__offer-sub">Five modules, every Premium feature</span>
+          <span class="hero__offer-pill">Download the offer</span>
+        </a>
+
+        <h1 class="hero__title">
+          <span class="hero__line"><span style="--l:0">Turn commercial strategy</span></span>
+          <span class="hero__line"><span style="--l:1">into results in the field.</span></span>
+        </h1>
+
         <div class="hero__intro">
-          <p class="lead">I help pharmaceutical companies launch with confidence, focus their field teams on the right customers and put AI to work where it actually changes commercial results. Independent, hands-on, based in Munich.</p>
+          <p class="lead">Commercial excellence and applied AI for pharmaceutical companies, from launch planning and targeting to AI tools your teams actually use. Independent, hands-on, based in Munich.</p>
           <div class="hero__actions">
             <a class="button" href="#contact">Book an intro call</a>
             <a class="link" href="#services">See what I work on</a>
           </div>
-          <aside class="hero__offer" aria-labelledby="hero-offer-title">
-            <div class="hero__offer-main">
-              <p class="hero__offer-tag">Training offer</p>
-              <h2 class="hero__offer-title" id="hero-offer-title">Copilot training for pharma teams</h2>
-              <p class="hero__offer-text">Five 60-minute modules covering every Microsoft 365 Copilot Premium feature, with real pharma use cases and compliance built in.</p>
-              <dl class="hero__offer-proof">
-                <div><dt>400+</dt><dd>pharma employees trained</dd></div>
-                <div><dt>95+</dt><dd>Net Promoter Score</dd></div>
-              </dl>
-            </div>
-            <div class="hero__offer-actions">
-              <a class="button button--light" href="assets/downloads/rla-copilot-training-offer.pdf" download="RLA-Solutions-Copilot-Training-Offer.pdf" type="application/pdf">Download the offer (PDF)</a>
-              <a class="link" href="#copilot-training">See the five modules</a>
-            </div>
-          </aside>
         </div>
       </div>
 
@@ -418,6 +416,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

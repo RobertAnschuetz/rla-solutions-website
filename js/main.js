@@ -48,6 +48,56 @@
     window.matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
   }
 
+  // Hero background: flowing "uptake" curves (low plateau, long gentle S, high
+  // plateau), drawn in the hero's real pixel size so they never stretch. They
+  // occupy the band from the top of the hero to just below the headline.
+  const pathsSvg = document.getElementById('heroPaths');
+  if (pathsSvg) {
+    const box = pathsSvg.parentElement;
+    const hero = box.parentElement;
+    const title = hero.querySelector('.hero__title');
+    const N = 34;
+    const drawPaths = () => {
+      if (title) {
+        box.style.height = Math.round(title.getBoundingClientRect().bottom - hero.getBoundingClientRect().top + 48) + 'px';
+      }
+      const W = box.clientWidth, H = box.clientHeight;
+      if (!W || !H) return;
+      pathsSvg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      const narrow = W < 860;
+      let out = '';
+      for (let i = 0; i < N; i++) {
+        const t = i / (N - 1);
+        const y0 = H * 1.00 - t * H * 0.34;                     // start height
+        const y1 = H * 0.42 - t * H * 0.40;                     // end height
+        const xs = W * (narrow ? 0.00 : 0.16) + t * W * 0.22;   // where the rise begins
+        const c1 = xs + W * (narrow ? 0.35 : 0.24);
+        const c2 = xs + W * (narrow ? 0.85 : 0.56);
+        const d = 'M-20 ' + y0.toFixed(1) + ' L' + xs.toFixed(1) + ' ' + y0.toFixed(1) +
+                  ' C' + c1.toFixed(1) + ' ' + y0.toFixed(1) + ', ' + c1.toFixed(1) + ' ' + y1.toFixed(1) + ', ' + c2.toFixed(1) + ' ' + y1.toFixed(1) +
+                  ' L' + (W + 20) + ' ' + (y1 - H * 0.02).toFixed(1);
+        const accent = i === Math.round(N * 0.62);
+        const opacity = accent ? 0.55 : (0.05 + 0.15 * Math.sin(Math.PI * t)).toFixed(3);
+        const width = accent ? 1.6 : (0.8 + 0.6 * t).toFixed(2);
+        out += '<path pathLength="1" d="' + d + '" stroke-opacity="' + opacity + '" stroke-width="' + width + '"' +
+               (accent ? ' class="is-accent"' : '') +
+               ' style="--dur:' + (14 + (i % 7) * 2.5) + 's; --delay:-' + (i * 1.3).toFixed(1) + 's"/>';
+      }
+      pathsSvg.innerHTML = out;
+    };
+    drawPaths();
+    let resizeTimer;
+    let lastWidth = window.innerWidth;
+    window.addEventListener('resize', () => {
+      // Ignore height-only changes (mobile address bar) to avoid redraw jitter
+      if (window.innerWidth === lastWidth) return;
+      lastWidth = window.innerWidth;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(drawPaths, 150);
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawPaths);
+  }
+
   // Hero chain: reveal once when it enters the viewport
   const chain = document.querySelector('.chain');
   if (chain) {

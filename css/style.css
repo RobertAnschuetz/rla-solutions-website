@@ -198,73 +198,95 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .nav__toggle[aria-expanded="true"] span:first-child { transform: translateY(3.5px) rotate(45deg); }
 .nav__toggle[aria-expanded="true"] span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
 
-/* ---------- Hero ---------- */
-.hero { padding-top: clamp(48px, 7vw, 104px); }
+/* ---------- Hero ----------
+   Statement headline over flowing "uptake" curves (pattern inspired by the
+   21st.dev Background Paths hero, rebuilt in vanilla SVG). The curves live in
+   the band above the headline's bottom edge; main.js sizes and draws them. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-top: clamp(40px, 6vw, 88px);
+}
+
+.hero__paths {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(100deg, transparent 12%, #000 58%), linear-gradient(to bottom, #000 75%, transparent 100%);
+  -webkit-mask-composite: source-in;
+          mask-image: linear-gradient(100deg, transparent 12%, #000 58%), linear-gradient(to bottom, #000 75%, transparent 100%);
+          mask-composite: intersect;
+}
+.hero__paths svg { display: block; width: 100%; height: 100%; }
+.hero__paths path {
+  fill: none;
+  stroke: var(--ink);
+  stroke-linecap: round;
+  stroke-dasharray: 0.62 0.38;
+  animation: flow var(--dur) linear infinite;
+  animation-delay: var(--delay);
+}
+.hero__paths path.is-accent { stroke: var(--accent); }
+@keyframes flow { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+/* Slim Copilot training line above the headline */
+.hero__offer {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  padding: 7px 7px 7px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  font-size: var(--step--1);
+  color: var(--slate);
+  text-decoration: none;
+  transition: border-color 0.2s var(--ease);
+}
+.hero__offer:hover { border-color: var(--ink); }
+.hero__offer strong { color: var(--ink); font-weight: 600; }
+.hero__offer-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  transition: background-color 0.2s var(--ease);
+}
+.hero__offer:hover .hero__offer-pill { background: var(--accent); }
 
 .hero__title {
-  max-width: 17ch;
-  font: 340 var(--step-4)/0.98 var(--font-display);
-  letter-spacing: -0.035em;
-  text-wrap: balance;
+  margin-top: clamp(24px, 3vw, 36px);
+  max-width: 19ch;
+  font: 330 clamp(2.75rem, 1.2rem + 6vw, 7rem)/0.98 var(--font-display);
+  letter-spacing: -0.04em;
 }
+.hero__line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.hero__line > span { display: block; }
+.js .hero__line > span {
+  transform: translateY(105%);
+  animation: rise 0.9s var(--ease) forwards;
+  animation-delay: calc(0.15s + var(--l) * 0.12s);
+}
+@keyframes rise { to { transform: none; } }
+@keyframes fadein { to { opacity: 1; } }
 
-.hero__intro {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  column-gap: clamp(20px, 3vw, 40px);
-  margin-top: clamp(32px, 4vw, 56px);
-}
-.hero__intro .lead { grid-column: 1 / 10; }
+.hero__intro { margin-top: clamp(28px, 3.5vw, 44px); max-width: 44rem; }
 .hero__actions {
-  grid-column: 1 / 10;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 16px 32px;
-  margin-top: 32px;
+  margin-top: 28px;
 }
-
-/* Copilot training offer panel in the hero. Same dark ink as the training
-   section, so it reads as one distinct offer rather than more body copy. */
-.hero__offer {
-  --on-ink: #FFFFFF;
-  --on-ink-muted: #B6BDCB;
-  --on-ink-rule: rgba(255, 255, 255, 0.16);
-  --accent-on-ink: #9DB0FF;
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 28px 48px;
-  margin-top: clamp(40px, 5vw, 64px);
-  padding: clamp(24px, 3.2vw, 40px);
-  border-radius: 10px;
-  background: var(--ink);
-  color: var(--on-ink);
-}
-.hero__offer-tag {
-  display: inline-block;
-  padding: 5px 12px;
-  border: 1px solid var(--accent-on-ink);
-  border-radius: 999px;
-  color: var(--accent-on-ink);
-  font-size: var(--step--1);
-  font-weight: 600;
-  line-height: 1.2;
-}
-.hero__offer-title {
-  margin-top: 16px;
-  font: 400 var(--step-3)/1.1 var(--font-display);
-  letter-spacing: -0.025em;
-}
-.hero__offer-text { margin-top: 12px; max-width: 36em; color: var(--on-ink-muted); }
-.hero__offer-proof { display: flex; flex-wrap: wrap; gap: 12px 40px; margin-top: 24px; }
-.hero__offer-proof dt { font: 400 var(--step-2)/1 var(--font-display); letter-spacing: -0.02em; }
-.hero__offer-proof dd { margin-top: 4px; font-size: var(--step--1); color: var(--on-ink-muted); }
-.hero__offer-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.hero__offer .link { text-decoration-color: var(--on-ink-rule); }
-.hero__offer .link:hover { color: var(--accent-on-ink); text-decoration-color: currentColor; }
-.hero__offer :focus-visible { outline-color: var(--accent-on-ink); }
 
 .lead {
   font-size: var(--step-1);
@@ -657,8 +679,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 @media (max-width: 760px) {
   :root { --header-h: 64px; }
   .nav .button--small { display: none; }
-  .hero__intro .lead, .hero__actions, .hero__offer { grid-column: 1 / -1; }
-  .hero__offer { grid-template-columns: 1fr; }
+  /* Headline wraps naturally on small screens; fade instead of line-by-line rise */
+  .hero__line, .hero__line > span { display: inline; }
+  .js .hero__line > span { transform: none; animation: none; }
+  .js .hero__title { opacity: 0; animation: fadein 0.8s 0.15s var(--ease) forwards; }
+  .hero__offer { gap: 8px 12px; border-radius: 18px; padding: 6px 6px 6px 14px; }
+  .hero__offer-sub { display: none; }
+  .hero__paths { opacity: 0.5; }
   .chain { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 16px; }
   .chain__step, .chain__ai { grid-row: var(--r); }
   .chain__note { grid-row: 6; margin-top: 4px; }
@@ -681,10 +708,13 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .js .chain__step, .js .chain__ai { opacity: 1; transform: none; }
+  .hero__paths path { stroke-dasharray: none; }
+  .js .hero__line > span { transform: none; }
+  .js .hero__title { opacity: 1; }
 }
 
 @media print {
-  .header, .form, .footer__links { display: none; }
+  .header, .form, .footer__links, .hero__paths { display: none; }
   .section--ink { background: none; color: var(--ink); }
   .section { padding-block: 32px; }
 }
