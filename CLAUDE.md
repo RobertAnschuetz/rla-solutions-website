@@ -14,7 +14,7 @@ Live at **rla-solutions.com** (All-Inkl) and mirrored at **rlasolutions.netlify.
 
 ## Structure
 ```
-index.html          Single page: Hero + commercial chain → Services → Client questions → Approach → Ways to work together → About → FAQ → Contact
+index.html          Single page: Hero + commercial chain → Services → Client questions → Ways to work together → About → FAQ → Contact
 legal-notice.html   Impressum in English (§ 5 DDG, § 18 (2) MStV, § 19 UStG)
 privacy.html        Privacy policy in English (GDPR)
 about.html, impressum.html, datenschutz.html, en/*   Redirect stubs (see above)
@@ -30,7 +30,7 @@ Images/             Source portrait PNG (not referenced by the site)
 - **Type:** Bricolage Grotesque *light* (340–450) for headings with tight negative tracking; Plus Jakarta Sans 400/600 body. Sentence case everywhere; no all-caps eyebrows, no middle-dot meta strings, no arrows in buttons.
 - **Layout:** left-aligned 12-col grid. Section title in cols 1–4 (sticky on desktop ≥1025px), content in cols 6–12. Lists separated by hairlines, no card grids or shadows.
 - **Signature element:** the hero's commercial chain: five steps (brand strategy → segmentation and targeting → channel and engagement plan → field execution → performance review) on a solid ink line, with a dashed blue AI layer underneath naming one AI application per step (potential models, next best action, call-note insights, forecasting) and the note "AI where it improves a decision, not everywhere." It shows both practices and how they connect. Desktop: 5-column grid (row 1 steps, row 2 AI, row 3 note). Mobile ≤760px: vertical, step left / AI right per row via `--r`. Only ambient motion on the page: items fade in left to right once in view (IntersectionObserver adds `.is-visible`; the `js` class on `<html>` hides them first, so they stay visible without JS). Respects `prefers-reduced-motion`. Replaced the earlier product-lifecycle curve (Nov 2026).
-- Numbered markers only for the Approach section (a real sequence).
+- No numbered markers (the "How a project runs" section was removed Nov 2026).
 
 ## Voice
 Personal first-person "I" (I help, I work alongside…). Plain, specific, no hype. British spelling (organisation, prioritised).
