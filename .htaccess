@@ -1,13 +1,37 @@
-# Caching rules for Apache (All-Inkl). Netlify ignores this file.
-# Without explicit headers, browsers guess a cache lifetime from the file's age
-# and can keep showing an outdated page for days after a deploy.
+# Server rules for Apache (All-Inkl). Netlify ignores this file.
+
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 1) One canonical address: https://rla-solutions.com (no http, no www).
+  #    Each scheme/host variant otherwise keeps its own browser cache entry.
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^ https://rla-solutions.com%{REQUEST_URI} [R=301,L]
+
+  # 2) Requests that only a stale copy of the pre-relaunch site makes:
+  #    unversioned CSS/JS (current pages use ?v=N) and assets that no longer exist.
+  #    These responses tell the browser to drop its cached copy of the site.
+  RewriteCond %{QUERY_STRING} ^$
+  RewriteRule ^(css/style\.css|js/main\.js)$ - [E=LEGACY_ASSET:1]
+  RewriteRule ^assets/(portfolio-[^/]+\.png|robert-portrait\.png|profile-photo\.jpg|Robert[^/]*\.jpeg|og-image\.svg|fonts/plus-jakarta-sans-italic-latin\.woff2)$ - [E=LEGACY_ASSET:1]
+</IfModule>
 
 <IfModule mod_headers.c>
+  Header always set Clear-Site-Data "\"cache\"" env=LEGACY_ASSET
+
+  # Browsers remember to use https for this host (1 year, no subdomains, no preload)
+  Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTPS} == 'on'"
+
+  # Caching. Without explicit headers, browsers guess a lifetime from the file's
+  # age and can keep showing an outdated page for weeks after a deploy.
   # HTML: always ask the server whether there is a newer version
   <FilesMatch "\.(html?)$">
     Header set Cache-Control "no-cache, must-revalidate"
   </FilesMatch>
-  # CSS / JS: short cache, then revalidate (filenames carry ?v= versions in the HTML)
+  # CSS / JS: short cache, then revalidate (the HTML references them with ?v=N)
   <FilesMatch "\.(css|js)$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
   </FilesMatch>
@@ -20,6 +44,3 @@
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
-
-# Directory index without extension
-DirectoryIndex index.html

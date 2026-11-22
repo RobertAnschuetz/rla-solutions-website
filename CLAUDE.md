@@ -55,8 +55,15 @@ git push main →─┤
 
 **All-Inkl:** `.github/workflows/deploy-allinkl.yml` syncs via FTPS (`SamKirkland/FTP-Deploy-Action@v4`); the server is mirrored to the repo, so deleted files are deleted live. Secrets: `ALLINKL_HOST`, `ALLINKL_USER`, `ALLINKL_PASSWORD`, `ALLINKL_PATH` (`/rla-solutions.com/`).
 
-## Caching
-All-Inkl's Apache sends no cache headers by default, so browsers heuristically cached the old site for days after the Nov 2026 relaunch. `.htaccess` (Apache only, ignored by Netlify) now sets `no-cache` for HTML, 1h for CSS/JS, 1 week for images/fonts. **When changing `css/style.css` or `js/main.js`, bump the `?v=N` query** in all three HTML pages.
+## Caching and stale-copy protection
+All-Inkl's Apache sends no cache headers by default, so browsers heuristically cached the pre-relaunch site for weeks, separately for each of http/https x www/non-www. `.htaccess` (Apache only, ignored by Netlify) now:
+1. **Redirects every variant (301) to `https://rla-solutions.com`** and sends HSTS (1 year, no subdomains, no preload), so there is one cache entry.
+2. **Sets cache rules:** `no-cache` for HTML, 1h for CSS/JS, 1 week for images/fonts, `no-cache` for PDF/XML/TXT.
+3. **Sends `Clear-Site-Data: "cache"`** on requests only a stale old page makes: unversioned `css/style.css` / `js/main.js` (current pages always use `?v=N`) and removed old assets (portfolio PNGs etc.).
+
+`js/main.js` starts with a self-healing check: if it runs inside old-site markup (`[data-text-rotate]`, `.wa-fab`, `.nav__mobile`, `#backToTop`), it reloads once with `?fresh=<timestamp>` (sessionStorage + URL guard against loops); the new page strips `?fresh=` from the address bar.
+
+**Rules:** when changing `css/style.css` or `js/main.js`, bump the `?v=N` query in all three HTML pages, and never reference them without `?v=` (that would trigger the cache wipe on every visit). Don't reuse the old-site class names above in new markup.
 
 ## Open items
 - Add specifics to the About section (roles, therapy areas, achievements) once Robert provides them.

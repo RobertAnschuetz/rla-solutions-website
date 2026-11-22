@@ -2,6 +2,26 @@
 (() => {
   'use strict';
 
+  // Self-healing for stale browser caches. A cached copy of the pre-relaunch
+  // site still requests js/main.js, so it receives this script. If the page
+  // carries old-site markup, fetch the page fresh once (unique query = no cache).
+  const isLegacyPage = document.querySelector('[data-text-rotate], .wa-fab, .nav__mobile, #backToTop');
+  if (isLegacyPage) {
+    let alreadyTried = false;
+    try {
+      alreadyTried = sessionStorage.getItem('rla-refresh') === '1';
+      sessionStorage.setItem('rla-refresh', '1');
+    } catch (e) { /* storage blocked: the URL check below still prevents loops */ }
+    if (!alreadyTried && !/[?&]fresh=/.test(location.search)) {
+      location.replace(location.pathname + '?fresh=' + Date.now() + location.hash);
+    }
+    return;
+  }
+  // Fresh page loaded: tidy the address bar
+  if (/[?&]fresh=/.test(location.search)) {
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) { /* ignore */ }
+  }
+
   // Header border once the page scrolls
   const header = document.querySelector('.header');
   if (header) {
