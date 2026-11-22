@@ -14,13 +14,14 @@ Live at **rla-solutions.com** (All-Inkl) and mirrored at **rlasolutions.netlify.
 
 ## Structure
 ```
-index.html          Single page: Hero + commercial chain → Services → Client questions → Ways to work together → About → FAQ → Contact
+index.html          Single page: Hero + commercial chain → Services → Copilot training → Client questions → Ways to work together → About → FAQ → Contact
 legal-notice.html   Impressum in English (§ 5 DDG, § 18 (2) MStV, § 19 UStG)
 privacy.html        Privacy policy in English (GDPR)
 about.html, impressum.html, datenschutz.html, en/*   Redirect stubs (see above)
 css/style.css       All styles (~600 lines, tokens in :root)
 js/main.js          Header border, mobile menu, hero chain reveal, contact form
 assets/             Portrait (robert-anschuetz*.jpg), favicon.svg, og-image.png, fonts
+assets/downloads/   rla-copilot-training-offer.pdf (public download; source: KI Training/General Deck/RLA_Copilot_Premium_Training_Offer.pdf)
 robots.txt, sitemap.xml
 Images/             Source portrait PNG (not referenced by the site)
 ```
@@ -30,7 +31,8 @@ Images/             Source portrait PNG (not referenced by the site)
 - **Type:** Bricolage Grotesque *light* (340–450) for headings with tight negative tracking; Plus Jakarta Sans 400/600 body. Sentence case everywhere; no all-caps eyebrows, no middle-dot meta strings, no arrows in buttons.
 - **Layout:** left-aligned 12-col grid. Section title in cols 1–4 (sticky on desktop ≥1025px), content in cols 6–12. Lists separated by hairlines, no card grids or shadows.
 - **Signature element:** the hero's commercial chain: five steps (brand strategy → segmentation and targeting → channel and engagement plan → field execution → performance review) on a solid ink line, with a dashed blue AI layer underneath naming one AI application per step (potential models, next best action, call-note insights, forecasting) and the note "AI where it improves a decision, not everywhere." It shows both practices and how they connect. Desktop: 5-column grid (row 1 steps, row 2 AI, row 3 note). Mobile ≤760px: vertical, step left / AI right per row via `--r`. Only ambient motion on the page: items fade in left to right once in view (IntersectionObserver adds `.is-visible`; the `js` class on `<html>` hides them first, so they stay visible without JS). Respects `prefers-reduced-motion`. Replaced the earlier product-lifecycle curve (Nov 2026).
-- No numbered markers (the "How a project runs" section was removed Nov 2026).
+- Numbered markers only for the Copilot training modules (a real sequence).
+- **Copilot training section** (`#copilot-training`): the page's only dark band (`.section--ink`, ink background, light-blue accent `#9DB0FF`) so the offer stands out. Contains intro, "Download the training offer" button (PDF), scoping-call link (`data-topic` preselects "Copilot training" in the form), proof figures (400+ trained, NPS 95+, from Robert's deck), five modules with outcomes, format/included/investment (€3,000 plus VAT). Linked from the nav and from the "AI in commercial" list. **When the deck changes, replace the PDF and update size/page count, modules, figures and price on the page to match.**
 
 ## Voice
 Personal first-person "I" (I help, I work alongside…). Plain, specific, no hype. British spelling (organisation, prioritised).

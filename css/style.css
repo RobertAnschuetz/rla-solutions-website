@@ -374,6 +374,59 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .format__time { color: var(--accent); font-size: var(--step--1); font-weight: 600; }
 .format dd:last-child { color: var(--slate); }
 
+/* Copilot training: the page's one dark band, so the offer is easy to spot */
+.section--ink {
+  --on-ink: #FFFFFF;
+  --on-ink-muted: #B6BDCB;
+  --on-ink-rule: rgba(255, 255, 255, 0.16);
+  --accent-on-ink: #9DB0FF;
+  background: var(--ink);
+  color: var(--on-ink);
+}
+.section--ink .section__note { color: var(--on-ink-muted); }
+.section--ink .link { text-decoration-color: var(--on-ink-rule); }
+.section--ink .link:hover { color: var(--accent-on-ink); text-decoration-color: currentColor; }
+.section--ink :focus-visible { outline-color: var(--accent-on-ink); }
+
+.button--light { background: var(--paper); border-color: var(--paper); color: var(--ink); }
+.button--light:hover { background: var(--accent-on-ink, #9DB0FF); border-color: var(--accent-on-ink, #9DB0FF); color: var(--ink); }
+
+.training__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 32px; }
+.training__file { font-size: var(--step--1); color: var(--on-ink-muted); }
+.training__call { display: inline-block; margin-top: 20px; }
+
+.proof { display: flex; flex-wrap: wrap; gap: 24px 64px; padding-bottom: 32px; border-bottom: 1px solid var(--on-ink-rule); }
+.proof dt { font: 340 var(--step-4)/1 var(--font-display); letter-spacing: -0.035em; color: var(--on-ink); }
+.proof dd { margin-top: 8px; font-size: var(--step--1); color: var(--on-ink-muted); }
+
+.modules { counter-reset: module; }
+.modules li {
+  counter-increment: module;
+  display: grid;
+  grid-template-columns: 2.5em minmax(0, 2fr) minmax(0, 3fr);
+  gap: 6px 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--on-ink-rule);
+}
+.modules li::before {
+  content: counter(module);
+  font: 500 var(--step--1)/1 var(--font-body);
+  color: var(--accent-on-ink);
+  font-variant-numeric: tabular-nums;
+}
+.modules h3 { font: 450 var(--step-1)/1.3 var(--font-display); letter-spacing: -0.01em; }
+.modules p { color: var(--on-ink-muted); }
+
+.training__format { margin-top: 32px; }
+.training__format li {
+  display: grid;
+  grid-template-columns: 8.5em minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+}
+.training__format span { font-size: var(--step--1); color: var(--on-ink-muted); padding-top: 0.15em; }
+
 /* About */
 .about { align-items: start; }
 .about__photo { grid-column: 1 / 5; }
@@ -577,6 +630,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   .about__photo { max-width: 360px; margin-bottom: 40px; }
   .form__row { grid-template-columns: 1fr; }
   .facts li { grid-template-columns: 1fr; gap: 2px; }
+  .modules li { grid-template-columns: 2em minmax(0, 1fr); }
+  .modules p { grid-column: 2; }
+  .training__format li { grid-template-columns: 1fr; gap: 2px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -587,5 +643,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 
 @media print {
   .header, .form, .footer__links { display: none; }
+  .section--ink { background: none; color: var(--ink); }
   .section { padding-block: 32px; }
 }

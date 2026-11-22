@@ -44,6 +44,14 @@
     }
   }
 
+  // Links with data-topic (e.g. "Book a scoping call") preselect the form topic
+  document.querySelectorAll('a[data-topic]').forEach((a) => {
+    a.addEventListener('click', () => {
+      const radio = document.querySelector('input[name="topic"][value="' + a.dataset.topic + '"]');
+      if (radio) radio.checked = true;
+    });
+  });
+
   // Current year in footer
   const year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());

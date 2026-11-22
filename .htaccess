@@ -15,8 +15,8 @@
   <FilesMatch "\.(jpe?g|png|webp|svg|woff2|ico)$">
     Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
-  # SEO helpers: revalidate
-  <FilesMatch "\.(xml|txt)$">
+  # SEO helpers and downloadable PDFs: revalidate so updates show immediately
+  <FilesMatch "\.(xml|txt|pdf)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
