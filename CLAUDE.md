@@ -1,9 +1,11 @@
 # RLA Solutions: Commercial Excellence & AI Consulting for Pharma
 
 ## Project Overview
-One-page site for Robert Anschütz's independent consulting practice (Munich): **commercial excellence and applied AI for pharmaceutical companies**. Audience: pharma commercial leaders (Head of Commercial Excellence, BU/launch leads, CCOs). The page's one job is credibility → intro call.
+Multi-page site for Robert Anschütz's independent consulting practice (Munich): **commercial excellence and applied AI for pharmaceutical companies**. Audience: pharma commercial leaders (Head of Commercial Excellence, BU/launch leads, CCOs). The page's one job is credibility → intro call.
 
-**English only.** The former German webdesign site (DE + EN mirror) was replaced in Nov 2026. Old URLs (`about.html`, `impressum.html`, `datenschutz.html`, `en/*`) are kept as tiny `noindex` meta-refresh stubs pointing to the new pages, so external links and search results don't 404. Don't delete them.
+**English only.** The former German webdesign site (DE + EN mirror) was replaced in Nov 2026. Old URLs (`impressum.html`, `datenschutz.html`, `en/*`) are kept as tiny `noindex` meta-refresh stubs pointing to the new pages, so external links and search results don't 404. Don't delete them. (`about.html` was a stub too and is a real page again since the Nov 2026 split.)
+
+**Pages (split from the former one-pager, Nov 2026).** Every page shares the same header/nav (Services, Copilot training, About, Contact + "Request an intro call"; the current page gets `aria-current="page"`, shown as a blue underline) and footer. **When you change the header, footer, or a CSS/JS version, update all seven HTML pages.** `main.js` forwards old one-pager links on the homepage (`/#services`, `/#copilot-training`, `/#about`, `/#faq`, `/#contact`) to the new pages.
 
 Live at **rla-solutions.com** (All-Inkl) and mirrored at **rlasolutions.netlify.app** (Netlify). Everything stays host-portable (no Netlify Forms/redirects, no All-Inkl PHP, no `.htaccess` dependencies).
 
@@ -14,12 +16,16 @@ Live at **rla-solutions.com** (All-Inkl) and mirrored at **rlasolutions.netlify.
 
 ## Structure
 ```
-index.html          Single page: Hero + commercial chain → Services → Copilot training → Client questions → Ways to work together → About → FAQ → Contact
+index.html          Home: hero (curves + headline + chain) → practice teasers → Copilot teaser (dark band, compact module list) → client questions → closing CTA band
+services.html       Page head → Commercial excellence (#commercial-excellence) → AI in commercial (#ai-in-commercial, mist) → Ways to work together → CTA band
+copilot-training.html  Page head (download + scoping-call link) → dark band: proof, five modules with outcomes, format/included/investment → CTA band
+about.html          Portrait + profile (h1 "I'm Robert Anschütz.") → CTA band
+contact.html        Page head → form (#contact) with direct email/LinkedIn → FAQ (#faq, mist)
 legal-notice.html   Impressum in English (§ 5 DDG, § 18 (2) MStV, VAT ID DE462805450 per § 27a UStG; Robert is no longer a small business under § 19 UStG since Nov 2026, so prices are shown "plus VAT")
 privacy.html        Privacy policy in English (GDPR)
-about.html, impressum.html, datenschutz.html, en/*   Redirect stubs (see above)
+impressum.html, datenschutz.html, en/*   Redirect stubs (see above)
 css/style.css       All styles (~600 lines, tokens in :root)
-js/main.js          Header border, mobile menu, hero chain reveal, contact form
+js/main.js          Stale-copy self-heal, old-anchor forwarding, header border, mobile menu, hero curves + chain reveal, ?topic= preselect, contact form
 assets/             Portrait (robert-anschuetz*.jpg), favicon.svg, og-image.png, fonts
 assets/downloads/   rla-copilot-training-offer.pdf (public download; source: KI Training/General Deck/RLA_Copilot_Premium_Training_Offer.pdf)
 robots.txt, sitemap.xml
@@ -29,11 +35,12 @@ Images/             Source portrait PNG (not referenced by the site)
 ## Design system (minimalist)
 - **Palette:** `--paper` #FFF, `--mist` #F3F4F6 (alternate section band), `--ink` #151922, `--slate` #596171 (secondary text), `--rule` #E1E4E9 (hairlines), single accent `--accent` #2747C7 "compound blue". No other colours.
 - **Type:** Bricolage Grotesque *light* (340–450) for headings with tight negative tracking; Plus Jakarta Sans 400/600 body. Sentence case everywhere; no all-caps eyebrows, no middle-dot meta strings, no arrows in buttons.
+- **Subpages** open with `.page-head` (large light h1 + lead) and end with `.cta-band` ("Let's talk about your question" + "Request an intro call").
 - **Layout:** left-aligned 12-col grid. Section title in cols 1–4 (sticky on desktop ≥1025px), content in cols 6–12. Lists separated by hairlines, no card grids or shadows.
 - **Hero:** statement headline "Turn commercial strategy into results in the field." (two lines that rise in on load; on ≤760px it wraps naturally and fades in), lead text, "Request an intro call" + "See what I work on" (CTA wording is "Request", since it leads to the form, not a calendar), and a slim pill above the headline that downloads the Copilot training PDF. Behind it, ~34 fine animated "uptake" curves (pattern inspired by the 21st.dev "Background Paths" hero, rebuilt in vanilla SVG; one curve in the accent blue). `main.js` draws them in the hero's real pixel size (no stretching) within the band down to the headline's bottom edge, redrawing on width changes; CSS masks fade them out towards the text. No proof figures in the hero (Robert's choice). Reduced motion: static curves, no text animation.
 - **Signature element:** the hero's commercial chain: five steps (brand strategy → segmentation and targeting → channel and engagement plan → field execution → performance review) on a solid ink line, with a dashed blue AI layer underneath naming one AI application per step (potential models, next best action, call-note insights, forecasting) and the note "AI where it improves a decision, not everywhere." It shows both practices and how they connect. Desktop: 5-column grid (row 1 steps, row 2 AI, row 3 note). Mobile ≤760px: vertical, step left / AI right per row via `--r`. Only ambient motion on the page: items fade in left to right once in view (IntersectionObserver adds `.is-visible`; the `js` class on `<html>` hides them first, so they stay visible without JS). Respects `prefers-reduced-motion`. Replaced the earlier product-lifecycle curve (Nov 2026).
 - Numbered markers only for the Copilot training modules (a real sequence).
-- **Copilot training section** (`#copilot-training`): the page's only dark band (`.section--ink`, ink background, light-blue accent `#9DB0FF`) so the offer stands out. Contains intro, "Download the training offer" button (PDF), scoping-call link (`data-topic` preselects "Copilot training" in the form), proof figures (400+ trained, NPS 95+, from Robert's deck), five modules with outcomes, format/included/investment (€3,000 plus VAT, matching the PDF deck). Linked from the nav and from the "AI in commercial" list. **When the deck changes, replace the PDF and update size/page count, modules, figures and price on the page to match.**
+- **Copilot training** (`copilot-training.html`, teaser on Home): the site's only dark band (`.section--ink`, ink background, light-blue accent `#9DB0FF`) so the offer stands out. Contains intro, "Download the training offer" button (PDF), scoping-call link to `contact.html?topic=Copilot%20training` (preselects the form topic; note: local `npx serve` redirects `.html` URLs and drops the query, so test it as `/contact?topic=…` locally), proof figures (400+ trained, NPS 95+, from Robert's deck), five modules with outcomes, format/included/investment (€3,000 plus VAT, matching the PDF deck). Linked from the nav, the hero pill (PDF download), the Home teaser and the "AI in commercial" list. **When the deck changes, replace the PDF and update size/page count, modules, figures and price on the page to match.**
 
 ## Voice
 Personal first-person "I" (I help, I work alongside…). Plain, specific, no hype. British spelling (organisation, prioritised, enquiry). Use "generative AI", not "GenAI". Footer carries a trademark note for Microsoft 365/Copilot and Net Promoter Score.

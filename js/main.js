@@ -22,6 +22,21 @@
     try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) { /* ignore */ }
   }
 
+  // The site used to be one page. Forward old in-page links (e.g. a shared
+  // "rla-solutions.com/#contact") from the homepage to the new subpages.
+  const onHome = /(^\/$|\/index\.html$)/.test(location.pathname);
+  const movedSections = {
+    '#services': 'services.html',
+    '#copilot-training': 'copilot-training.html',
+    '#about': 'about.html',
+    '#faq': 'contact.html#faq',
+    '#contact': 'contact.html',
+  };
+  if (onHome && movedSections[location.hash]) {
+    location.replace(movedSections[location.hash]);
+    return;
+  }
+
   // Header border once the page scrolls
   const header = document.querySelector('.header');
   if (header) {
@@ -114,13 +129,13 @@
     }
   }
 
-  // Links with data-topic (e.g. "Request a scoping call") preselect the form topic
-  document.querySelectorAll('a[data-topic]').forEach((a) => {
-    a.addEventListener('click', () => {
-      const radio = document.querySelector('input[name="topic"][value="' + a.dataset.topic + '"]');
-      if (radio) radio.checked = true;
+  // contact.html?topic=Copilot%20training preselects the form topic
+  const topic = new URLSearchParams(location.search).get('topic');
+  if (topic) {
+    document.querySelectorAll('input[name="topic"]').forEach((radio) => {
+      if (radio.value === topic) radio.checked = true;
     });
-  });
+  }
 
   // Current year in footer
   const year = document.getElementById('year');

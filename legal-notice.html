@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://rla-solutions.com/legal-notice.html">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preload" href="assets/fonts/bricolage-grotesque-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=9">
+  <link rel="stylesheet" href="css/style.css?v=10">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -16,7 +16,19 @@
   <header class="header">
     <div class="container header__inner">
       <a class="brand" href="./">RLA Solutions</a>
-      <a class="button button--small" href="./#contact">Request an intro call</a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list" id="navList">
+          <li><a href="services.html">Services</a></li>
+          <li><a href="copilot-training.html">Copilot training</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__cta"><a class="button" href="contact.html">Request an intro call</a></li>
+        </ul>
+        <a class="button button--small" href="contact.html">Request an intro call</a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="navList" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </nav>
     </div>
   </header>
 
@@ -81,6 +93,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=6" defer></script>
+  <script src="js/main.js?v=7" defer></script>
 </body>
 </html>
