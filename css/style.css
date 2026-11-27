@@ -431,20 +431,6 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
 .questions li:first-child { padding-top: 0; }
 .questions li:last-child { border-bottom: 0; padding-bottom: 0; }
 
-/* Formats */
-.formats { border-top: 1px solid var(--rule); }
-.format {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 3fr);
-  gap: 6px 32px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--rule);
-  align-items: baseline;
-}
-.format dt { font: 450 var(--step-1)/1.3 var(--font-display); }
-.format__time { color: var(--accent); font-size: var(--step--1); font-weight: 600; }
-.format dd:last-child { color: var(--slate); }
-
 /* Copilot training: the page's one dark band, so the offer is easy to spot */
 .section--ink {
   --on-ink: #FFFFFF;
@@ -731,8 +717,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.2em
   .chain__step::before { top: 3px; left: -6px; }
   .chain__ai { grid-column: 2; margin-top: 0; border-top: 0; padding: 2px 0 26px 0; }
   .chain__ai::before { position: static; display: inline-block; margin-right: 8px; vertical-align: 0.1em; }
-  .offer > div, .format { grid-template-columns: 1fr; }
-  .format { gap: 4px; }
+  .offer > div { grid-template-columns: 1fr; }
   .about__photo, .about__text { grid-column: 1 / -1; }
   .about__photo { max-width: 360px; margin-bottom: 40px; }
   .form__row { grid-template-columns: 1fr; }

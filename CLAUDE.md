@@ -17,7 +17,7 @@ Live at **rla-solutions.com** (All-Inkl) and mirrored at **rlasolutions.netlify.
 ## Structure
 ```
 index.html          Home: hero (curves + headline + chain) → practice teasers → Copilot teaser (dark band, compact module list) → client questions → closing CTA band
-services.html       Page head → Commercial excellence (#commercial-excellence) → AI in commercial (#ai-in-commercial, mist) → Ways to work together → CTA band
+services.html       Page head → Commercial excellence (#commercial-excellence) → AI in commercial (#ai-in-commercial, mist) → CTA band (the "Ways to work together" formats section was removed Nov 2026)
 copilot-training.html  Page head (download + scoping-call link) → dark band: proof, five modules with outcomes, format/included/investment → CTA band
 about.html          Portrait + profile (h1 "I'm Robert Anschütz.") → CTA band
 contact.html        Page head → form (#contact) with direct email/LinkedIn → FAQ (#faq, mist)
